@@ -66,6 +66,9 @@
               "browserTarget": "ProjectTemptationClient:build:development"
             }
           },
+          "options": {
+            "port": 4580
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
