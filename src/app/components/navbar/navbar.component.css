@@ -4,12 +4,6 @@
     background-color: white;
 }
 
-nav{
-    background-color: #ccc;
-    margin: 0;
-    width: 100%;
-    margin:0 auto;
-}
 .logito{
     text-align: center;
     font-size: 35px;
@@ -18,17 +12,26 @@ nav{
     margin: 0;
     display: 0;
 }
+/*=================NAVBAR================*/
+nav{
+    background-color: #ccc;
+    margin: 0;
+    width: 100%;
+    margin:0 0;
+}
+
+
 
 nav ul{
     text-align: center;
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 nav ul li {
     display: inline;
     position: relative;
     display:inline-block;
-    margin:0 20px 0 0;
 }
 .text {
     color: #222;
@@ -56,12 +59,13 @@ nav ul li ul{
     display:none;
     position:absolute;
     background:#ccc;
+    padding: 0;
     
 }
 
 nav ul li ul li {
     width:100%;
-    border-bottom:solid rgba(255,255,255,.3);
+    list-style: none;
   }
 
 nav ul li ul li:hover{
@@ -81,9 +85,10 @@ li > a:only-child:after { content: ''; }
     text-transform: none;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 20px 15px;
+    padding: 20px 20px;
     display: inline-block;
     font-size: 15px;
+    
 }
 
 
@@ -99,4 +104,13 @@ li > a:only-child:after { content: ''; }
 
 .font{
     font-size: 30px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+    
 }
