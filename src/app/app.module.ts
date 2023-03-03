@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CollectionsComponent } from './components/collections/collections.component';
+import { CargarscriptService } from './services/cargarscript.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,13 @@ import { CollectionsComponent } from './components/collections/collections.compo
     NavbarComponent,
     CarritoComponent,
     ProductosComponent,
-    CollectionsComponent
+    CollectionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CargarscriptService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

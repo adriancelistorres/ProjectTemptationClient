@@ -22,7 +22,7 @@
 
 #selectField img{
     width: 16px;
-    transition: transform 0.5s;
+    transition: transform 0.45s;
 }
 
 #list{
