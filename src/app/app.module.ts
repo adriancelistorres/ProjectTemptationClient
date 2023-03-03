@@ -5,18 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { CargarscriptService } from './services/cargarscript.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CarritoComponent
+    CarritoComponent,
+    ProductosComponent,
+    CollectionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CargarscriptService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,56 @@
+.selector{
+    width: 355px;
+}
+
+#selectField{
+    width: 100%;
+    padding: 1px 20px;
+    box-sizing: border-box;
+    background: gainsboro;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#selectText{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#selectField img{
+    width: 16px;
+    transition: transform 0.45s;
+}
+
+#list{
+    width: 100%;
+    background: gainsboro;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.options{
+    width: 100%;
+    padding: 7px;
+    list-style: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.options:hover{
+    color: white;
+    background-color: black;
+}
+.hide{
+    visibility: hidden;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
