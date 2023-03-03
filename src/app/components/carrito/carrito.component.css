@@ -7,3 +7,23 @@
     height: 30px;
     width:  30px;
   }
+
+
+  .tabla{
+    padding-left: 100px;
+  }
+  .text-subn{
+    padding-right: 100px;
+  }
+  hr {
+    border: none;
+    border-top: 3px solid rgb(0, 0, 0);
+    width: 80%;
+  }
+  
+
+  @media(max-width: 600px) {
+    .tabla{
+      padding: 0;
+    }
+  }

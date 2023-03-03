@@ -1,15 +1,15 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-6 border border-secondary " >
-            <table class="table border border-secondary mt-3">
+        <div class="col-lg-6 " >
+            <table class="table rounded-lg rounded border border-secondary mt-3">
                 <thead class="text-center w-50">
                   <tr class="">
-                    <th class="w-25">Imagen</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Total</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th class="w-25 text-danger">Imagen</th>
+                    <th scope="col " class="text-danger">Precio</th>
+                    <th scope="col "class="text-danger">Cantidad</th>
+                    <th scope="col "class="text-danger">Total</th>
+                    <th scope="col "class="text-danger"></th>
+                    <th scope="col "class="text-danger"></th>
                   </tr>
                 </thead>
                 <tbody class="text-center align-middle">
@@ -18,12 +18,16 @@
                     <td class="pb-2">15</td>
                     <td>20</td>
                     <td>1500</td>
-                    <td>
-                        <button
-                        class="btn btn-outline-warning btn-sm"
-                      >
-                        <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
-                      </button>
+                    <td class="w-25">
+                      <div class="input-group">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-outline-secondary" (click)="decrementValue()">-</button>
+                        </div>
+                        <input type="number" id="quantity" name="quantity" class="form-control">
+                        <div class="input-group-prepend">
+                          <button type="button" class="btn btn-outline-secondary" (click)="incrementValue()">+</button>
+                        </div>
+                      </div>
                     </td>
                     <td>
                         <button
@@ -36,23 +40,42 @@
                 </tbody>
               </table>
         </div>
-        <div class="col-lg-6">
-            <div class="car px-5 mx-5">
-                <div class="px-5">
-                    <div class="h4 pb-2 mb-4 text-center text-danger border-bottom border-danger">
+
+
+        <div class="col-lg-6  px-2 ">
+            <div class="car px-5 mx-5 border border-black">
+                <div class="px-5 ">
+                    <div class="h4 pb-2 mb-4 mt-2 text-center text-danger border-bottom border-danger border-top  border-black">
                         Resumen de Compra
+                        
                      </div>
                 </div>
-                <div class="card-body">
-                   <div class="table">
-                    <tbody class="border-bottom ">
-                        <tr> 
-                            <td>Subtotal:</td>
+                <div class="card-body  mt-5">
+                   <table class="mx-5 tabla w-100">
+                    <tbody>
+                      <div class="px-3 mb-4">
+                        <tr class=""> 
+                            <td class="text-subn">SUBTOTAL:</td>
                             <td class="align-text-bottom">.$/200</td>
-                        </tr>
+                        </tr>    
+                      </div>
                     </tbody>
-                   </div>
-                </div>
+                    <tbody class="px-5">
+                      <hr class="">
+                      <div class="px-3 mb-4">
+                        <tr class=""> 
+                          <td style="padding-right: 130px;">TOTAL:</td>
+                          <td class="align-text-bottom">.$/200</td>
+                        </tr>
+                      </div>
+                      <div class="">
+                        <input class="form-check-input mb-1 p-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                        <label for="" class="mx-2 mt-0">Aceptar los terminos y Condiciones</label>
+                      </div>
+                    </tbody>
+                    <a href="" class="btn btn-danger w-75 mt-5 mb-3">Realizar Compra</a>
+                    <a href="" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
+                  </table>
             </div>
         </div>
     </div>
