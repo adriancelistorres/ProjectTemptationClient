@@ -8,6 +8,9 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { CargarscriptService } from './services/cargarscript.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CargarscriptService } from './services/cargarscript.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [CargarscriptService],
   bootstrap: [AppComponent]
