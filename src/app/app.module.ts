@@ -8,6 +8,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { CargarscriptService } from './services/cargarscript.service';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CargarscriptService } from './services/cargarscript.service';
     CarritoComponent,
     ProductosComponent,
     CollectionsComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
