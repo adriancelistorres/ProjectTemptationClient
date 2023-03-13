@@ -11,6 +11,7 @@ import { CargarscriptService } from './services/cargarscript.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PipePipe } from './shared/pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CarritoComponent,
     ProductosComponent,
     CollectionsComponent,
+    PipePipe,
   ],
   imports: [
     BrowserModule,

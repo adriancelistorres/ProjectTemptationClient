@@ -23,6 +23,7 @@ nav{
 .wrapper{
     position: relative;
     max-width: 1300px;
+    width: 100%;
     padding: 0 30px;
     height: 70px;
     margin: auto;
@@ -71,6 +72,7 @@ img{
 
 
 .mega-box{
+    z-index: 9999;
     position: absolute;
     left: 0;
     width: 100%;
@@ -104,6 +106,7 @@ img{
 
 .mega-box2{
     position: absolute;
+    z-index: 9999;
     right: -100;
     width: 100%;
     top: 100px;
