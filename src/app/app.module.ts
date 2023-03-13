@@ -11,6 +11,7 @@ import { CargarscriptService } from './services/cargarscript.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetProductoComponent } from './components/det-producto/det-producto.component';
 import { PipePipe } from './shared/pipe.pipe';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { PipePipe } from './shared/pipe.pipe';
     CarritoComponent,
     ProductosComponent,
     CollectionsComponent,
+    DetProductoComponent,
     PipePipe,
   ],
   imports: [
