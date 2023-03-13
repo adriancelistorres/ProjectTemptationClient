@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-6 " >
             <table class="table rounded-lg rounded border border-secondary mt-3">
-                <thead class="text-center w-50">
+                <thead class="text-center w-100">
                   <tr class="">
                     <th class="w-25 text-danger">Imagen</th>
                     <th scope="col " class="text-danger">Precio</th>
@@ -13,22 +13,21 @@
                   </tr>
                 </thead>
                 <tbody class="text-center align-middle">
-                  <tr>
-                    <td><img class="w-100" src="https://ripleype.imgix.net/https%3A%2F%2Fdpq25p1ucac70.cloudfront.net%2Fseller-place-files%2Fmrkl-files%2F1046%2FDEPORTES%2FPhelps_RopaDeBano_Mujer_CompBackSolid_SW2570404_02_203124138815_25.jpeg?w=750&h=555&ch=Width&auto=format&cs=strip&bg=FFFFFF&q=60&trimcolor=FFFFFF&trim=color&fit=fillmax&ixlib=js-1.1.0&s=633bb5b3545f88a8d20563200ec0469e" alt=""></td>
-                    <td class="pb-2">15</td>
-                    <td>20</td>
-                    <td>1500</td>
+                  <tr *ngFor="let Prueba of prueba; let i = index" >
+                    <td>{{Prueba.image}}</td>
+                    <td class="pb-2">{{Prueba.precio}}</td>
                     <td class="w-25">
                       <div class="input-group">
                         <div class="input-group-append">
-                          <button type="button" class="btn btn-outline-secondary" (click)="decrementValue()">-</button>
+                          <button type="button" class="btn btn-outline-secondary"class="imagen" (click)="decrementValue(i)">-</button>
                         </div>
-                        <input type="number" id="quantity" name="quantity" class="form-control">
+                        <input type="number" id="quantity" name="quantity" class="form-control imagen" [(ngModel)] ="prueba[i].cantidad">
                         <div class="input-group-prepend">
-                          <button type="button" class="btn btn-outline-secondary" (click)="incrementValue()">+</button>
+                          <button type="button" class="btn btn-outline-secondary" class="imagen"  (click)="incrementValue(i)">+</button>
                         </div>
                       </div>
                     </td>
+                    <td>{{(Prueba.precio * Prueba.cantidad).toFixed(2)}}</td>
                     <td>
                         <button
                           class="btn btn-outline-danger btn-sm"
@@ -54,18 +53,18 @@
                    <table class="mx-5 tabla w-100">
                     <tbody>
                       <div class="px-3 mb-4">
-                        <tr class=""> 
+                        <tr *ngFor="let Prueba of prueba" > 
                             <td class="text-subn">SUBTOTAL:</td>
-                            <td class="align-text-bottom">.$/200</td>
+                            <td class="align-text-bottom">{{(Prueba.precio * Prueba.cantidad).toFixed(2)}}</td>
                         </tr>    
                       </div>
                     </tbody>
                     <tbody class="px-5">
                       <hr class="">
                       <div class="px-3 mb-4">
-                        <tr class=""> 
+                        <tr class="" > 
                           <td style="padding-right: 130px;">TOTAL:</td>
-                          <td class="align-text-bottom">.$/200</td>
+                          <td class="align-text-bottom">200</td>
                         </tr>
                       </div>
                       <div class="">
