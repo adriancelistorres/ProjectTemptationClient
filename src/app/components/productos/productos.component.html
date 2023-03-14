@@ -92,7 +92,7 @@
             <!-- <h3 *ngIf="item.state == 1"></h3> -->
             <h5 class="p-name" >{{item.name_p}}</h5>
             <h4 class="p-price">S/{{item.price}}</h4>
-              <button class="buy-btn" >Ver Detalles</button>
+              <button class="buy-btn" (click)="getOneProduct(item.idproduc)">Ver Detalles</button>
           </div>
       </div>
 

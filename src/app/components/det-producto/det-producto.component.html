@@ -1,13 +1,13 @@
 <div class="container sproduct my-5">
     <div class="row ps-5">
-        <div class="col-lg-5 col-md-12 col-12">
-            <img class="img-fluid w-100" src="./assets/img/blusa_roja.png" alt="">
+        <div class="col-lg-5 col-md-12 col-12" *ngIf="selectprod">
+            <img class="img-fluid w-100" src="{{selectprod.image_using}}" alt="">
         </div>
         <div class="col-lg-6 col-md-12 col-12"> 
-            <h6>Inicio / Blusa</h6>
+            <h6>Inicio /Productos</h6>
             <h3 class="py-4
-            ">Blusa Roja Smok</h3>
-            <h2>S/25.00</h2>
+            ">{{selectprod.name_p}}</h3>
+            <h2>{{selectprod.price}}</h2>
             <select class="my-3 mb-4">
                 <option value="" selected disabled>Selecione una Talla</option>
                 <option value="">XS</option>
@@ -21,7 +21,7 @@
             </button>
             <h4 class="my-2 mt-5">Detalles del Producto</h4>
             <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga magnam aperiam praesentium quibusdam eaque corrupti cum adipisci laborum exercitationem fugit quis deleniti vel sit dolor sunt magni, asperiores molestiae consectetur.
+                {{selectprod.description}}
             </span>
         </div>
     </div>
