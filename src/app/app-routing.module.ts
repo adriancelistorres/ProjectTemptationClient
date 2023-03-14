@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'car', component: CarritoComponent},
   {path: 'productos', component: ProductosComponent},
   {path: 'colecciones', component: CollectionsComponent},
-  {path: 'detproducto', component: DetProductoComponent},
+  {path: 'detproducto/:idproduc', component: DetProductoComponent},
 
 ];
 
