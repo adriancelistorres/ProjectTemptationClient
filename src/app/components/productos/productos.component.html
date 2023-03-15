@@ -8,7 +8,7 @@
 </div>
 <div class="container mt-3">
   <div class="row" style="height: 100px;">
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <p>Filtrar por:</p>
       <div class="selector">
         <div id="selectField">
@@ -29,6 +29,18 @@
             <p>Large</p>
           </li>
         </ul>
+      </div>
+    </div> -->
+    <div class="col-md-4">
+      <div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ tallaSeleccionada || 'Talla' }}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <button *ngFor="let talla of tallas" class="dropdown-item" (click)="tallaSeleccionada = talla">{{ talla }}</button>
+          </ul>
+        </div>
       </div>
     </div>
 

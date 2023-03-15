@@ -13,6 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetProductoComponent } from './components/det-producto/det-producto.component';
 import { PipePipe } from './shared/pipe.pipe';
+import { ProdBlusasComponent } from './components/m-v-productos/prod-blusas/prod-blusas.component';
+import { ProdPolosComponent } from './components/m-v-productos/prod-polos/prod-polos.component';
+import { ProdPolerasComponent } from './components/m-v-productos/prod-poleras/prod-poleras.component';
+import { ProdChompasComponent } from './components/m-v-productos/prod-chompas/prod-chompas.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { PipePipe } from './shared/pipe.pipe';
     CollectionsComponent,
     DetProductoComponent,
     PipePipe,
+    ProdBlusasComponent,
+    ProdPolosComponent,
+    ProdPolerasComponent,
+    ProdChompasComponent,
   ],
   imports: [
     BrowserModule,

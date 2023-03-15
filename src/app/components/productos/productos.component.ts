@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CargarscriptService } from '../../services/cargarscript.service';
 import { ProductosService } from '../../services/productos.service';
 import { IProducts } from '../../Interfaces/IProducts';
@@ -9,8 +9,9 @@ import { DetProductoComponent } from '../det-producto/det-producto.component';
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
-export class ProductosComponent {
-
+export class ProductosComponent implements OnInit {
+  tallas = ['S', 'M', 'L', 'XL']
+  tallaSeleccionada: string|any;
   listProducts: IProducts[] = [];
   constructor(
     private _cargarScript: CargarscriptService,
@@ -23,9 +24,10 @@ export class ProductosComponent {
     })
   }
 
-  @ViewChild(DetProductoComponent)detprodview!: DetProductoComponent;
+  // @ViewChild(DetProductoComponent)detprodview!: DetProductoComponent;
 
   ngOnInit(){
+    this._cargarScript.miScript(["produc/produc"])
     this.getProducts();
   }
 
