@@ -15,14 +15,16 @@
                 <option value="">M</option>
                 <option value="">L</option>
             </select>
-            <input type="number" value="1">
-            <button>
+            <input type="number" [(ngModel)]="quantity" value="1">
+            <button (click)="selectProductCarrito()">
                 Añadir Al Carrito
             </button>
             <h4 class="my-2 mt-5">Detalles del Producto</h4>
             <span>
                 {{selectprod.description}}
             </span>
+            <br>
+            <br>
         </div>
     </div>
 </div>
