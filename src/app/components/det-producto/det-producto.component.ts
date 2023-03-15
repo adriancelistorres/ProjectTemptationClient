@@ -22,6 +22,7 @@ export class DetProductoComponent {
     private route: ActivatedRoute,
     private sharedDataService: SharedDataServiceService,
 
+
   ){
 
   }
@@ -56,5 +57,7 @@ export class DetProductoComponent {
       this.selectedProduct2 = this.sharedDataService.getSelectProduct()
       localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct2))
     });
+
+
   }
 }
