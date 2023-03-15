@@ -9,6 +9,9 @@ import { ProdBlusasComponent } from './components/m-v-productos/prod-blusas/prod
 import { ProdPolosComponent } from './components/m-v-productos/prod-polos/prod-polos.component';
 import { ProdPolerasComponent } from './components/m-v-productos/prod-poleras/prod-poleras.component';
 import { ProdChompasComponent } from './components/m-v-productos/prod-chompas/prod-chompas.component';
+import { ProdVestidosComponent } from './components/m-v-productos/prod-vestidos/prod-vestidos.component';
+import { ProdShortsComponent } from './components/m-v-productos/prod-shorts/prod-shorts.component';
+import { ProdJeansComponent } from './components/m-v-productos/prod-jeans/prod-jeans.component';
 
 const routes: Routes = [
   {path: 'car', component: CarritoComponent},
@@ -19,6 +22,9 @@ const routes: Routes = [
   {path: 'productos/polos', component: ProdPolosComponent},
   {path: 'productos/poleras', component: ProdPolerasComponent},
   {path: 'productos/chompas', component: ProdChompasComponent},  
+  {path: 'productos/vestidos', component: ProdVestidosComponent},  
+  {path: 'productos/shorts', component: ProdShortsComponent},  
+  {path: 'productos/jeans', component: ProdJeansComponent},  
 
 ];
 

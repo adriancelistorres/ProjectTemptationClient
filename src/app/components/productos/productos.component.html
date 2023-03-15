@@ -32,17 +32,35 @@
       </div>
     </div> -->
     <div class="col-md-4">
-      <div>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ tallaSeleccionada || 'Talla' }}
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <button *ngFor="let talla of tallas" class="dropdown-item" (click)="tallaSeleccionada = talla">{{ talla }}</button>
-          </ul>
-        </div>
-      </div>
+      <p>Filtrar por:</p>
+      <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle botonsito" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Seleccione una Talla
+        </button>
+        <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange($event)">
+            <label class="form-check-label" for="flexCheckChecked">
+              Talla S
+            </label>
+          </div> 
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange2($event)">
+            <label class="form-check-label" for="flexCheckChecked">
+              Talla M
+            </label>
+          </div> 
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange3($event)">
+            <label class="form-check-label" for="flexCheckChecked">
+              Talla L
+            </label>
+          </div>
+
+        </ul>
+      </div>     
     </div>
+
 
     <div class="col-md-4">
       <p>Filtrar por:</p>
@@ -68,7 +86,7 @@
       </div>
     </div>
 
-    <div class="col-md-3" style="margin-left: 94px">
+    <!-- <div class="col-md-3" style="margin-left: 94px">
       <p>Ordenar Por:</p>
       <div class="selector">
         <div id="selectField3">
@@ -90,7 +108,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="row">
     <div class="col-md-12">

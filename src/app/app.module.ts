@@ -17,6 +17,9 @@ import { ProdBlusasComponent } from './components/m-v-productos/prod-blusas/prod
 import { ProdPolosComponent } from './components/m-v-productos/prod-polos/prod-polos.component';
 import { ProdPolerasComponent } from './components/m-v-productos/prod-poleras/prod-poleras.component';
 import { ProdChompasComponent } from './components/m-v-productos/prod-chompas/prod-chompas.component';
+import { ProdVestidosComponent } from './components/m-v-productos/prod-vestidos/prod-vestidos.component';
+import { ProdJeansComponent } from './components/m-v-productos/prod-jeans/prod-jeans.component';
+import { ProdShortsComponent } from './components/m-v-productos/prod-shorts/prod-shorts.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { ProdChompasComponent } from './components/m-v-productos/prod-chompas/pr
     ProdPolosComponent,
     ProdPolerasComponent,
     ProdChompasComponent,
+    ProdVestidosComponent,
+    ProdJeansComponent,
+    ProdShortsComponent,
   ],
   imports: [
     BrowserModule,
