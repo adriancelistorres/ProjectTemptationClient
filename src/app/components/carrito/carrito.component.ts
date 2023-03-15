@@ -37,6 +37,7 @@ export class CarritoComponent {
 
   onDeleteSelectedProduct(i: number) {
     this.sharedDataService.deleteSelectedProduct(i);
+    localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
     this.totales()
   }
 
@@ -45,6 +46,7 @@ export class CarritoComponent {
    
     this.selectedProduct[index].stock++;
     this.selectProduct2 = this.selectedProduct
+    localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
     this.totales()
   }
 
@@ -54,10 +56,12 @@ export class CarritoComponent {
     if (this.selectedProduct[index].stock<= 1) {
       this.selectedProduct[index].stock = 1
       this.selectProduct2 = this.selectedProduct
+      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
       this.totales()
     } else {
       this.selectedProduct[index].stock--; 
       this.selectProduct2 = this.selectedProduct
+      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
       this.totales()
     }
   }
@@ -65,6 +69,7 @@ export class CarritoComponent {
     const inputElement = event.target as HTMLInputElement;
       const inputValue = parseInt(inputElement.value);
       this.selectedProduct[index].stock = inputValue;
+      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
       this.totales()
 
   }
