@@ -5,6 +5,7 @@
                 <thead class="text-center w-100">
                   <tr class="">
                     <th class="w-25 text-danger">Imagen</th>
+                    <th scope="col " class="text-danger">Nombre</th>
                     <th scope="col " class="text-danger">Precio</th>
                     <th scope="col "class="text-danger">Cantidad</th>
                     <th scope="col "class="text-danger">Total</th>
@@ -13,26 +14,27 @@
                   </tr>
                 </thead>
                 <tbody class="text-center align-middle">
-                  <tr *ngFor="let Prueba of prueba; let i = index" >
-                    <td>{{Prueba.image}}</td>
-                    <td class="pb-2">{{Prueba.precio}}</td>
+                  <tr *ngFor="let Prueba of selectedProduct; let i = index ; " >
+                    <td><img class="img-fluid w-100" src="{{Prueba.image_using}}" alt=""></td>
+                    <td class="pb-2">{{Prueba.name_p}}</td>
+                    <td class="pb-2">{{Prueba.price}}</td>
                     <td class="w-25">
                       <div class="input-group">
                         <div class="input-group-append">
                           <button type="button" class="btn btn-outline-secondary"class="imagen" (click)="decrementValue(i)">-</button>
                         </div>
-                        <input type="number" id="quantity" name="quantity" class="form-control imagen" [(ngModel)] ="prueba[i].cantidad">
+                        <input type="number" id="quantity" name="quantity" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock">
                         <div class="input-group-prepend">
                           <button type="button" class="btn btn-outline-secondary" class="imagen"  (click)="incrementValue(i)">+</button>
                         </div>
                       </div>
                     </td>
-                    <td>{{(Prueba.precio * Prueba.cantidad).toFixed(2)}}</td>
+                    <td>{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
                     <td>
                         <button
                           class="btn btn-outline-danger btn-sm"
                         >
-                          <img class="imagen" src="./assets/img/eliminar.png" alt="" />
+                          <img class="imagen" (click)="onDeleteSelectedProduct(i)" src="./assets/img/eliminar.png" alt="" />
                         </button>
                     </td>
                   </tr>
@@ -53,9 +55,9 @@
                    <table class="mx-5 tabla w-100">
                     <tbody>
                       <div class="px-3 mb-4">
-                        <tr *ngFor="let Prueba of prueba" > 
+                        <tr *ngFor="let Prueba of selectedProduct" > 
                             <td class="text-subn">SUBTOTAL:</td>
-                            <td class="align-text-bottom">{{(Prueba.precio * Prueba.cantidad).toFixed(2)}}</td>
+                            <td class="align-text-bottom">{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
                         </tr>    
                       </div>
                     </tbody>
@@ -64,7 +66,7 @@
                       <div class="px-3 mb-4">
                         <tr class="" > 
                           <td style="padding-right: 130px;">TOTAL:</td>
-                          <td class="align-text-bottom">200</td>
+                          <td class="align-text-bottom">{{(val).toFixed(2)}}</td>
                         </tr>
                       </div>
                       <div class="">
@@ -73,7 +75,7 @@
                       </div>
                     </tbody>
                     <a href="" class="btn btn-danger w-75 mt-5 mb-3">Realizar Compra</a>
-                    <a href="" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
+                    <a href="" routerLink="/productos" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
                   </table>
             </div>
         </div>
