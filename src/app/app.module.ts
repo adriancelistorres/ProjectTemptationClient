@@ -55,7 +55,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut: 4000,
       positionClass: 'toast-bottom-right',
-      preventDuplicates: true,}), 
+      preventDuplicates: true,}),
   ],
   providers: [CargarscriptService],
   bootstrap: [AppComponent]
