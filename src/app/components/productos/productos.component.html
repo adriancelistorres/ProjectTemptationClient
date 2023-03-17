@@ -8,7 +8,7 @@
 </div>
 <div class="container mt-3">
   <div class="row" style="height: 100px;">
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <p>Filtrar por:</p>
       <div class="selector">
         <div id="selectField">
@@ -30,7 +30,37 @@
           </li>
         </ul>
       </div>
+    </div> -->
+    <div class="col-md-4">
+      <p>Filtrar por:</p>
+      <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle botonsito" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Seleccione una Talla
+        </button>
+        <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange($event)">
+            <label class="form-check-label" for="flexCheckChecked">
+              Talla S
+            </label>
+          </div> 
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange2($event)">
+            <label class="form-check-label" for="flexCheckChecked">
+              Talla M
+            </label>
+          </div> 
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange3($event)">
+            <label class="form-check-label" for="flexCheckChecked">
+              Talla L
+            </label>
+          </div>
+
+        </ul>
+      </div>     
     </div>
+
 
     <div class="col-md-4">
       <p>Filtrar por:</p>
@@ -56,7 +86,7 @@
       </div>
     </div>
 
-    <div class="col-md-3" style="margin-left: 94px">
+    <!-- <div class="col-md-3" style="margin-left: 94px">
       <p>Ordenar Por:</p>
       <div class="selector">
         <div id="selectField3">
@@ -78,7 +108,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -92,7 +122,7 @@
             <!-- <h3 *ngIf="item.state == 1"></h3> -->
             <h5 class="p-name" >{{item.name_p}}</h5>
             <h4 class="p-price">S/{{item.price}}</h4>
-              <button class="buy-btn" >Ver Detalles</button>
+              <button class="buy-btn" (click)="getOneProduct(item.idproduc)">Ver Detalles</button>
           </div>
       </div>
 

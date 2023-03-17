@@ -57,7 +57,7 @@ hr{
 
 .options:hover{
     color: white;
-    background-color: black;
+    background-color: red;
 }
 .hide{
     visibility: hidden;
@@ -216,9 +216,20 @@ button{
     text-transform: uppercase;
     transition: 0.3s ease;
     border-radius: 5px;
+    width: 150px;
+    height: 45px;
 }
 
 .sizeeimg{
     width: 390px;
     height: 570px;
+}
+
+.botonsito{
+    width: 355px;
+}
+
+.uledit{
+   padding-left: 50px;
+   font-weight: 400;
 }
