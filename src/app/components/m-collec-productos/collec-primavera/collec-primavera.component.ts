@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { ISize } from '../../../Interfaces/ISize';
 
 @Component({
-  selector: 'app-prod-chompas',
-  templateUrl: './prod-chompas.component.html',
-  styleUrls: ['./prod-chompas.component.css']
+  selector: 'app-collec-primavera',
+  templateUrl: './collec-primavera.component.html',
+  styleUrls: ['./collec-primavera.component.css']
 })
-export class ProdChompasComponent {
+export class CollecPrimaveraComponent {
   listProducts: IProducts[] = [];
   selectprod: IProducts | any;
   id:any;
@@ -25,18 +25,18 @@ export class ProdChompasComponent {
     ){
     _cargarScript.miScript(["produc/produc"])
     this._productService.RefreshRequired.subscribe((result)=> {
-      this.getOnlyChompas();
+      this.getOnlyPrimavera();
     })
   }
 
   ngOnInit(){
-    this.getOnlyChompas();
+    this.getOnlyPrimavera();
   }
 
-  getOnlyChompas() {
+  getOnlyPrimavera() {
     this._productService.getProducts().subscribe((data: IProducts[]) => 
     {
-      this.listProducts = data.filter(op=>op.idcat == 4);
+      this.listProducts = data.filter(op=>op.idstyles == 2);
     });
   }
 
@@ -49,7 +49,7 @@ export class ProdChompasComponent {
   selectSize_S(){
     this._productService.getProducts().subscribe(
       (options: any[]) => {
-        this.listProducts = options.filter(option=>option.idsize == 1 && option.idcat == 4);
+        this.listProducts = options.filter(option=>option.idsize == 1 && option.idstyles == 2);
         console.log("LOG1",this.listProducts)
       },
       (error: any) => {
@@ -60,7 +60,7 @@ export class ProdChompasComponent {
   selectSize_M(){
     this._productService.getProducts().subscribe(
       (options: any[]) => {
-        this.listProducts = options.filter(option=>option.idsize == 2 && option.idcat == 4);
+        this.listProducts = options.filter(option=>option.idsize == 2 && option.idstyles == 2);
         console.log("LOG1",this.listProducts)
       },
       (error: any) => {
@@ -71,7 +71,7 @@ export class ProdChompasComponent {
   selectSize_L(){
     this._productService.getProducts().subscribe(
       (options: any[]) => {
-        this.listProducts = options.filter(option=>option.idsize == 3 && option.idcat == 4);
+        this.listProducts = options.filter(option=>option.idsize == 3 && option.idstyles == 2);
         console.log("LOG1",this.listProducts)
       },
       (error: any) => {
@@ -79,6 +79,7 @@ export class ProdChompasComponent {
       }
     );
   }
+
 
   handleChange(event: any) {
     this.isChecked = event.target.checked;
@@ -88,7 +89,7 @@ export class ProdChompasComponent {
       this.selectSize_M();
     } 
     else {
-      this.getOnlyChompas()
+      this.getOnlyPrimavera()
     }
   }
   handleChange2(event: any) {
@@ -96,7 +97,7 @@ export class ProdChompasComponent {
     if (this.isChecked) {
       this.selectSize_M()
     } else {
-      this.getOnlyChompas()
+      this.getOnlyPrimavera()
     }
   }
   handleChange3(event: any) {
@@ -104,7 +105,9 @@ export class ProdChompasComponent {
     if (this.isChecked) {
       this.selectSize_L()
     } else {
-      this.getOnlyChompas()
+      this.getOnlyPrimavera()
     }
   }
+
+
 }

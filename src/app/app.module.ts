@@ -20,6 +20,11 @@ import { ProdChompasComponent } from './components/m-v-productos/prod-chompas/pr
 import { ProdVestidosComponent } from './components/m-v-productos/prod-vestidos/prod-vestidos.component';
 import { ProdJeansComponent } from './components/m-v-productos/prod-jeans/prod-jeans.component';
 import { ProdShortsComponent } from './components/m-v-productos/prod-shorts/prod-shorts.component';
+import { CollecPrimaveraComponent } from './components/m-collec-productos/collec-primavera/collec-primavera.component';
+import { CollecInviernoComponent } from './components/m-collec-productos/collec-invierno/collec-invierno.component';
+import { CollecVeranoComponent } from './components/m-collec-productos/collec-verano/collec-verano.component';
+import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -37,13 +42,20 @@ import { ProdShortsComponent } from './components/m-v-productos/prod-shorts/prod
     ProdVestidosComponent,
     ProdJeansComponent,
     ProdShortsComponent,
+    CollecPrimaveraComponent,
+    CollecInviernoComponent,
+    CollecVeranoComponent,
+    CollecFallComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,}), 
   ],
   providers: [CargarscriptService],
   bootstrap: [AppComponent]
