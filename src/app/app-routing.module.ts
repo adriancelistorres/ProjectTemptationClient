@@ -12,6 +12,10 @@ import { ProdChompasComponent } from './components/m-v-productos/prod-chompas/pr
 import { ProdVestidosComponent } from './components/m-v-productos/prod-vestidos/prod-vestidos.component';
 import { ProdShortsComponent } from './components/m-v-productos/prod-shorts/prod-shorts.component';
 import { ProdJeansComponent } from './components/m-v-productos/prod-jeans/prod-jeans.component';
+import { CollecPrimaveraComponent } from './components/m-collec-productos/collec-primavera/collec-primavera.component';
+import { CollecVeranoComponent } from './components/m-collec-productos/collec-verano/collec-verano.component';
+import { CollecInviernoComponent } from './components/m-collec-productos/collec-invierno/collec-invierno.component';
+import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
 
 const routes: Routes = [
   {path: 'car', component: CarritoComponent},
@@ -24,7 +28,11 @@ const routes: Routes = [
   {path: 'productos/chompas', component: ProdChompasComponent},  
   {path: 'productos/vestidos', component: ProdVestidosComponent},  
   {path: 'productos/shorts', component: ProdShortsComponent},  
-  {path: 'productos/jeans', component: ProdJeansComponent},  
+  {path: 'productos/jeans', component: ProdJeansComponent},
+  {path: 'productos/primavera', component: CollecPrimaveraComponent}, 
+  {path: 'productos/verano', component: CollecVeranoComponent}, 
+  {path: 'productos/invierno', component: CollecInviernoComponent}, 
+  {path: 'productos/otoño', component: CollecFallComponent}, 
 
 ];
 

@@ -3,6 +3,7 @@ import { IProducts } from '../../Interfaces/IProducts';
 import { ProductosService } from '../../services/productos.service';
 import { ActivatedRoute } from '@angular/router';
 import { SharedDataServiceService } from 'src/app/services/shared-data-service.service';
+import { ToastrService } from 'node_modules/ngx-toastr';
 
 @Component({
   selector: 'app-det-producto',
@@ -21,6 +22,7 @@ export class DetProductoComponent {
     private _productoService: ProductosService,
     private route: ActivatedRoute,
     private sharedDataService: SharedDataServiceService,
+    private _toastr: ToastrService
 
 
   ){
@@ -52,10 +54,12 @@ export class DetProductoComponent {
         price: product.price,
         image_using: product.image_using
       };
+      if(product.name_p != localStorage.getItem("selectedProduct2"))
       this.sharedDataService.setselectProductoc(this.selectedProduct); 
       console.log("LOG SELECT DETALLEPRODUCTO",this.selectedProduct);
       this.selectedProduct2 = this.sharedDataService.getSelectProduct()
       localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct2))
+      this._toastr.success("Se añadio al Carrito Correctamente");
     });
 
 

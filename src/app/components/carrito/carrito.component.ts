@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnChanges, SimpleChanges } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { IProductcar } from 'src/app/Interfaces/IProductsCar';
 import { SharedDataServiceService } from 'src/app/services/shared-data-service.service';
 
@@ -24,7 +25,7 @@ export class CarritoComponent {
   selectProduct2: IProductcar[] = []
   val: number = 0
   num: number = 0
-  constructor(private sharedDataService: SharedDataServiceService){}
+  constructor(private sharedDataService: SharedDataServiceService, private _toastr: ToastrService){}
 
   ngOnInit(){
     this.selectedProduct = this.sharedDataService.getSelectProduct();
