@@ -47,17 +47,32 @@ export class DetProductoComponent {
   selectProductCarrito(){
     this._productoService.getOneProduct(this.id).subscribe(product => {
       this.selectedProduct = {
-        name_p: product.name_p,
-        stock: this.quantity,
-        price: product.price,
-        image_using: product.image_using
+          name_p: product.name_p,
+          stock: this.quantity,
+          price: product.price,
+          image_using: product.image_using 
       };
-      this.sharedDataService.setselectProductoc(this.selectedProduct); 
-      console.log("LOG SELECT DETALLEPRODUCTO",this.selectedProduct);
-      this.selectedProduct2 = this.sharedDataService.getSelectProduct()
-      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct2))
+      // const localget : any = localStorage.getItem("selectedProduct2")
+      // const general = JSON.parse(localget);
+      // const nombp  = Object.getOwnPropertyNames(general)[0]
+      // console.log("GENERAL",general)
+      
+      // console.log("LOCALGET:",localget)
+      // console.log("NOMBp:",nombp)
+      
+        this.sharedDataService.setselectProductoc(this.selectedProduct); 
+        console.log("LOG SELECT DETALLEPRODUCTO",this.selectedProduct);
+        this.selectedProduct2 = this.sharedDataService.getSelectProduct()
+        localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct2))
+
+      const localget: any = localStorage.getItem("selectedProduct2");
+      const productos = JSON.parse(localget); 
+      for (let i = 0; i < productos.length; i++) {
+        console.log("IDENTIFICADOR NP",productos[i].name_p); 
+      }
+
+
+
     });
-
-
   }
 }
