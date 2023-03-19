@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Tahoma;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  background: darkblue;
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+#logo {
+  float: left;
+}
+
+.botonera {
+  float: right;
+}
+
+.botonera ul {
+  display: flex;
+  list-style: none;
+}
+
+.botonera a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 20px;
+}
+
+.fondo-parallax{
+  background: url(../);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 20px 0px;
+}
+.parallax{
+  width: 80%;
+  margin: auto;
+  color: white;
+}
