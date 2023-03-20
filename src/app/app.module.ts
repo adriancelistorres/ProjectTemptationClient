@@ -28,6 +28,7 @@ import { CollecInviernoComponent } from './components/m-collec-productos/collec-
 import { CollecVeranoComponent } from './components/m-collec-productos/collec-verano/collec-verano.component';
 import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ToastrModule } from 'ngx-toastr';
     CollecInviernoComponent,
     CollecVeranoComponent,
     CollecFallComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
