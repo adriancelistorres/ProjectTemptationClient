@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-declare var tns:any;
+// declare var tns:any;
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,7 @@ declare var tns:any;
 })
 export class MenuComponent {
 
-  constructor() {
+  /*constructor() {
     this.ngOnInit()
   }
 
@@ -139,5 +139,5 @@ export class MenuComponent {
       });
 
     },500);
-  }
+  }*/
 }
