@@ -8,6 +8,9 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { CargarscriptService } from './services/cargarscript.service';
+
+import { MenuComponent } from './components/menu/menu.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +28,8 @@ import { CollecInviernoComponent } from './components/m-collec-productos/collec-
 import { CollecVeranoComponent } from './components/m-collec-productos/collec-verano/collec-verano.component';
 import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     CarritoComponent,
     ProductosComponent,
     CollectionsComponent,
+    MenuComponent,
     DetProductoComponent,
     PipePipe,
     ProdBlusasComponent,
@@ -46,6 +52,7 @@ import { ToastrModule } from 'ngx-toastr';
     CollecInviernoComponent,
     CollecVeranoComponent,
     CollecFallComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut: 4000,
       positionClass: 'toast-bottom-right',
-      preventDuplicates: true,}), 
+      preventDuplicates: true,}),
   ],
   providers: [CargarscriptService],
   bootstrap: [AppComponent]
