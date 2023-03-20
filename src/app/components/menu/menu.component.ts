@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//declare var tns;
+declare var tns:any;
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
-  /*constructor() {}
+  constructor() {
+    this.ngOnInit()
+  }
 
   ngOnInit(): void{
     setTimeout(()=>{
@@ -137,5 +139,5 @@ export class MenuComponent {
       });
 
     },500);
-  }*/
+  }
 }
