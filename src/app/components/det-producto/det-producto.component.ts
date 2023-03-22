@@ -49,10 +49,12 @@ export class DetProductoComponent {
   selectProductCarrito(){
     this._productoService.getOneProduct(this.id).subscribe(product => {
       this.selectedProduct = {
+          idproduc : this.id,
           name_p: product.name_p,
           stock: this.quantity,
           price: product.price,
-          image_using: product.image_using 
+          image_using: product.image_using ,
+          total : product.price * this.quantity,
       };
       // const localget : any = localStorage.getItem("selectedProduct2")
       // const general = JSON.parse(localget);
@@ -66,6 +68,7 @@ export class DetProductoComponent {
         console.log("LOG SELECT DETALLEPRODUCTO",this.selectedProduct);
         this.selectedProduct2 = this.sharedDataService.getSelectProduct()
         localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct2))
+        this._toastr.success("Producto Añadido al Carrito")
 
       const localget: any = localStorage.getItem("selectedProduct2");
       const productos = JSON.parse(localget); 
