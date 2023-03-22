@@ -46,7 +46,6 @@ export class CarritoComponent {
     console.log("Elemento Eliminado:",i)
     this.selectedProduct.splice(i, 1); 
     localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
-  
     this.totales()
   }
 
@@ -55,8 +54,12 @@ export class CarritoComponent {
    
     this.selectedProduct[index].stock++;
     this.selectProduct2 = this.selectedProduct
-    localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
     this.totales()
+    console.log("TOTAL",this.val)
+    const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
+    this.selectedProduct[index].total = valor
+    console.log("TOTAL EN LISTA", valor)
+    localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
   }
 
   decrementValue(index: number) {
@@ -66,20 +69,29 @@ export class CarritoComponent {
       this.selectedProduct[index].stock = 1
       this.selectProduct2 = this.selectedProduct
       localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
-      this.totales()
     } else {
       this.selectedProduct[index].stock--; 
       this.selectProduct2 = this.selectedProduct
-      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
+
       this.totales()
+      console.log("TOTAL",this.val)
+      const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
+      this.selectedProduct[index].total = valor
+      console.log("TOTAL EN LISTA", valor)
+      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
     }
   }
   handleInputChange(index: number, event: Event) {
     const inputElement = event.target as HTMLInputElement;
       const inputValue = parseInt(inputElement.value);
       this.selectedProduct[index].stock = inputValue;
-      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
       this.totales()
+      console.log("TOTAL",this.val)
+
+      const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
+      this.selectedProduct[index].total = valor
+      console.log("TOTAL EN LISTA",valor)
+      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
 
   }
 
@@ -89,6 +101,7 @@ export class CarritoComponent {
 
       this.num = value.price * value.stock
       this.val = this.val + this.num
+      this.selectProduct2
       console.log("VALUES",this.val)
       }
     //this.total = this.selectedProduct.reduce((acc,obj,) => acc + (obj.price * obj.stock),0);

@@ -9,6 +9,7 @@ export interface IProductcar {
     name_p?: string|any|undefined,
     description?: string|any|undefined,
     price?: number|any|undefined,
+    total?: number|any|undefined,
     stock?: number|any|undefined,
     image_front?: string|any|undefined,
     image_back?: string|any|undefined,
