@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IPerson } from 'src/app/Interfaces/IPerson';
 import { PersonService } from 'src/app/services/person.service';
@@ -19,7 +20,8 @@ export class UserRegistroComponent {
   constructor(
     private _personService: PersonService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ){
     this.formPerson = this.fb.group({
       idrol: 2,
@@ -37,7 +39,7 @@ export class UserRegistroComponent {
 
   addPerson(){
     const person: IPerson = {
-      idrol: this.formPerson.get('idrol')?.value,
+      idrol: 2,
       name: this.formPerson.get('name')?.value,
       lastname: this.formPerson.get('lastname')?.value,
       dni: this.formPerson.get('dni')?.value,
@@ -56,6 +58,12 @@ export class UserRegistroComponent {
     }
 
     })
+  }
+
+  redireccionarConRetraso(ruta: string) {
+    setTimeout(() => {
+      this.router.navigate([ruta]);
+    }, 5000);
   }
 }
 

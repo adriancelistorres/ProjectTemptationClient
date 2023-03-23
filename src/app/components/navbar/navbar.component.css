@@ -107,7 +107,7 @@ img{
 .mega-box2{
     position: absolute;
     z-index: 9999;
-    left: 900px;
+    left: -1;
     width: 27%;
     top: 100px;
     opacity: 0;
