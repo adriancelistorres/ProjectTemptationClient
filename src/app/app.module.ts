@@ -12,7 +12,7 @@ import { CargarscriptService } from './services/cargarscript.service';
 import { MenuComponent } from './components/menu/menu.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetProductoComponent } from './components/det-producto/det-producto.component';
 import { PipePipe } from './shared/pipe.pipe';
@@ -29,6 +29,7 @@ import { CollecVeranoComponent } from './components/m-collec-productos/collec-ve
 import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CollecVeranoComponent,
     CollecFallComponent,
     FooterComponent,
+    UserRegistroComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ToastrModule.forRoot({timeOut: 4000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}),
+      ReactiveFormsModule
   ],
   providers: [CargarscriptService],
   bootstrap: [AppComponent]

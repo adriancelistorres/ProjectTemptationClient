@@ -23,7 +23,7 @@
                         <div class="input-group-append">
                           <button type="button" class="btn btn-outline-secondary"class="imagen" (click)="decrementValue(i)">-</button>
                         </div>
-                        <input type="number" id="quantity" name="quantity" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock">
+                        <input type="number" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock" (change)="handleInputChange(i, $event)">
                         <div class="input-group-prepend">
                           <button type="button" class="btn btn-outline-secondary" class="imagen"  (click)="incrementValue(i)">+</button>
                         </div>
@@ -69,13 +69,13 @@
                           <td class="align-text-bottom">{{(val).toFixed(2)}}</td>
                         </tr>
                       </div>
-                      <div class="">
-                        <input class="form-check-input mb-1 p-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                        <label for="" class="mx-2 mt-0">Aceptar los terminos y Condiciones</label>
-                      </div>
+                        <div class="">
+                          <input class="form-check-input mb-1 p-0" type="checkbox" value="" aria-label="Checkbox for following text input" [(ngModel)]="aceptarterminos">
+                          <label for="" class="mx-2 mt-0">Aceptar los terminos y Condiciones</label>
+                        </div>
+                        <a  (click)="realizarcompra()" class="btn btn-danger w-75 mt-5 mb-3">Realizar Compra</a>
+                        <a  routerLink="/productos" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
                     </tbody>
-                    <a href="" routerLink="/menu" class="btn btn-danger w-75 mt-5 mb-3">Realizar Compra</a>
-                    <a href="" routerLink="/productos" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
                   </table>
             </div>
         </div>

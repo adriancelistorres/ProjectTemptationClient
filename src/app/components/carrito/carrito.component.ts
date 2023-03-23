@@ -19,6 +19,7 @@ interface Prueba{
 
 export class CarritoComponent {
   searchText: any;
+  aceptarterminos: boolean = false
   selectedProduct: IProductcar[] = []
   data = []  = [];
   total : Number | any
@@ -27,7 +28,9 @@ export class CarritoComponent {
   num: number = 0
   variable: string | any
  
-  constructor(private sharedDataService: SharedDataServiceService, private _toastr: ToastrService){}
+  constructor(
+    private sharedDataService: SharedDataServiceService,
+     private _toastr: ToastrService){}
 
 
   ngOnInit(){
@@ -113,5 +116,14 @@ export class CarritoComponent {
     if (selectedProduct2 !== null) {
     this.variable = JSON.parse(selectedProduct2);
   }
+  }
+
+  realizarcompra(){
+    if(this.aceptarterminos){
+      console.log(this.aceptarterminos)
+      window.location.href = "/menu"
+    }else{
+      this._toastr.warning("Debe de Seleccionar los terminos y condiciones")
+    }
   }
 }
