@@ -1,16 +1,32 @@
-
 .logo{
     width: 100%;
-    background-color: white;
 }
+
+
+.my-nav{
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+background: none;
+}
+
 
 .logito{
     text-align: center;
-    font-size: 35px;
+    font-size: 45px;
     text-transform: uppercase;
     font-family: 'Brush Script MT';
     margin: 0;
     display: 0;
+    padding-top: 10px;
+    padding-right: 15px;
+
+    text-shadow:
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff;
+
 }
 /*=================NAVBAR================*/
 nav{
@@ -47,16 +63,30 @@ img{
 .nav-links li{
     list-style: none;
 }
+div li a.active{
+  text-decoration: underline;
 
+}
+a.active .icon-wrapper i {
+  text-decoration: underline;
+
+
+
+}
 .nav-links li a{
-    color: #222;
+    color: #000000;
     text-decoration: none;
     text-transform: none;
     text-transform: uppercase;
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 20px 30px;
     display: inline-block;
-    font-size: medium;
+    font-size: 20px;
+    text-shadow:
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #dddddd,
+     2px  2px 0 #fffbfb;
 }
 
 .nav-links li a:hover{
@@ -89,7 +119,7 @@ img{
 }
 
 .content{
-    background:#ccc;
+    background:#ffffff;
     border:10px;
     padding: 25px 40px;
     display: flex;

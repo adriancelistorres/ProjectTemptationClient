@@ -1,3 +1,4 @@
+<div style="padding: 130px;">
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-6 " >
@@ -48,23 +49,23 @@
                 <div class="px-5 ">
                     <div class="h4 pb-2 mb-4 mt-2 text-center text-danger border-bottom border-danger border-top  border-black">
                         Resumen de Compra
-                        
+
                      </div>
                 </div>
                 <div class="card-body  mt-5">
                    <table class="mx-5 tabla w-100">
                     <tbody>
                       <div class="px-3 mb-4">
-                        <tr *ngFor="let Prueba of selectedProduct" > 
+                        <tr *ngFor="let Prueba of selectedProduct" >
                             <td class="text-subn">{{Prueba.name_p}}:</td>
                             <td class="align-text-bottom">{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
-                        </tr>    
+                        </tr>
                       </div>
                     </tbody>
                     <tbody class="px-5">
                       <hr class="">
                       <div class="px-3 mb-4">
-                        <tr class="" > 
+                        <tr class="" >
                           <td style="padding-right: 130px;">TOTAL:</td>
                           <td class="align-text-bottom">{{(val).toFixed(2)}}</td>
                         </tr>
@@ -80,4 +81,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

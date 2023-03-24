@@ -1,85 +1,127 @@
-<nav>
-    <div class="logo">
-        <h1 class="logito">temptation</h1>
-    </div>
-    <div class="wrapper">
-        <div class="nav-links">
-            <li>
-                <a href="">INICIO</a>
-            </li>
-            <li>
-                <a href="">Reclamos</a>
-            </li>
-          <li>
-            <a href=""routerLink="/productos">Productos</a>
-                <div class="mega-box">
-                    <div class="content">
-                        <div class="main">
-                            <p> Productos</p>
-                            <ul class="mega-links">
-                                <li><a routerLink="/productos/blusas" class="text-sub">Blusas</a></li>
-                                <li><a routerLink="/productos/polos" class="text-sub">Polos</a></li>
-                                <li><a routerLink="/productos/chompas" class="text-sub">Chompas</a></li>
-                            </ul>
-                        </div>
-                        <div class="main">
-                            <p> Productos</p>
-                            <ul class="mega-links">
-                                <li><a routerLink="productos/poleras" class="text-sub">Poleras</a></li>
-                                <li><a routerLink="productos/vestidos" class="text-sub">Vestidos</a></li>
-
-                            </ul>
-                        </div>
-                        <div class="main">
-                            <p> Productos</p>
-                            <ul class="mega-links">
-                                <li><a routerLink="productos/jeans" class="text-sub">Jeans</a></li>
-                                <li><a routerLink="productos/shorts" class="text-sub">Shorts</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="" routerLink="/colecciones">Colecciones</a>
-                <div class="mega-box">
-                    <div class="content">
-                        <div class="main">
-                            <p> Productos</p>
-                            <ul class="mega-links">
-                                <li><a routerLink="productos/primavera" class="text-sub">Primavera</a></li>
-                                <li><a routerLink="productos/verano" class="text-sub">Verano</a></li>
-                            </ul>
-                        </div>
-                        <div class="main">
-                            <p> Productos</p>
-                            <ul class="mega-links">
-                                <li><a routerLink="productos/otoño" class="text-sub">Otoño</a></li>
-                                <li><a routerLink="productos/invierno" class="text-sub">Invierno</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li><a href="" class="text">Sobre Nosotros</a></li>
-            <li><a href="" routerLink="/car" class="text"><i class="fa-solid fa-cart-shopping"></i><br></a></li>
-            <li>
-                <a ><i class="fa-solid fa-user"></i></a>
-                <div class="mega-box2">
-                    <div class="content">
-                        <div class="main">
-                            <ul class="mega-links">
-                                <li><a  class="text-sub">Iniciar Sesion</a></li>
-                                <li><a href="" routerLink="/registro" class="text-sub">Crear cuenta</a></li>
-                                <!--Estas opciones apareceran cuando el usuario esta logeado :]-->
-                             <!-- <li><a href="" class="text-sub">Editar Cuenta</a></li>
-                              <li><a href="" class="text-sub">Cerrar Sesion</a></li>-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
+<nav class="my-nav" style="padding-top:40px ;">
+  <!-- <div class="logo">
+    <h1 class="logito">temptation</h1>
+  </div> -->
+  <div class="wrapper">
+    <div class="nav-links ">
+      <li>
+        <div class="logo">
+          <h1 class="logito">temptation</h1>
         </div>
+      </li>
+      <li>
+        <a href="">INICIO</a>
+      </li>
+      <li>
+        <a href="">Reclamos</a>
+      </li>
+      <li>
+        <a href="" routerLink="/productos" routerLinkActive="active">Productos</a>
+        <div class="mega-box">
+          <div class="content">
+            <div class="main">
+              <p>Productos</p>
+              <ul class="mega-links">
+                <li>
+                  <a routerLink="/productos/blusas" class="text-sub">Blusas</a>
+                </li>
+                <li>
+                  <a routerLink="/productos/polos" class="text-sub">Polos</a>
+                </li>
+                <li>
+                  <a routerLink="/productos/chompas" class="text-sub"
+                    >Chompas</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="main">
+              <p>Productos</p>
+              <ul class="mega-links">
+                <li>
+                  <a routerLink="productos/poleras" class="text-sub">Poleras</a>
+                </li>
+                <li>
+                  <a routerLink="productos/vestidos" class="text-sub"
+                    >Vestidos</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="main">
+              <p>Productos</p>
+              <ul class="mega-links">
+                <li>
+                  <a routerLink="productos/jeans" class="text-sub">Jeans</a>
+                </li>
+                <li>
+                  <a routerLink="productos/shorts" class="text-sub">Shorts</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="" routerLink="/colecciones">Colecciones</a>
+        <div class="mega-box">
+          <div class="content">
+            <div class="main">
+              <p>Productos</p>
+              <ul class="mega-links">
+                <li>
+                  <a routerLink="productos/primavera" class="text-sub"
+                    >Primavera</a
+                  >
+                </li>
+                <li>
+                  <a routerLink="productos/verano" class="text-sub">Verano</a>
+                </li>
+              </ul>
+            </div>
+            <div class="main">
+              <p>Productos</p>
+              <ul class="mega-links">
+                <li>
+                  <a routerLink="productos/otoño" class="text-sub">Otoño</a>
+                </li>
+                <li>
+                  <a routerLink="productos/invierno" class="text-sub"
+                    >Invierno</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="" class="text">Sobre Nosotros</a></li>
+      <li>
+        <a href="" routerLink="/car" class="text" routerLinkActive="active"
+          >    <span class="icon-wrapper"><i class="fa-solid fa-cart-shopping"></i></span><br>
+          <br
+        /></a>
+      </li>
+      <li>
+        <a><i class="fa-solid fa-user"></i></a>
+        <div class="mega-box2">
+          <div class="content">
+            <div class="main">
+              <ul class="mega-links">
+                <li><a class="text-sub">Iniciar Sesion</a></li>
+                <li>
+                  <a href="" routerLink="/registro" class="text-sub"
+                    >Crear cuenta</a
+                  >
+                </li>
+                <!--Estas opciones apareceran cuando el usuario esta logeado :]-->
+                <!-- <li><a href="" class="text-sub">Editar Cuenta</a></li>
+                              <li><a href="" class="text-sub">Cerrar Sesion</a></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
     </div>
- </nav>
-
+  </div>
+</nav>

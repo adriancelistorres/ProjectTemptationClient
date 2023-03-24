@@ -1,0 +1,35 @@
+.my-carousel{
+  position: absolute;
+  top: 0;
+
+}
+
+.marquee {
+  padding-top: 5px;
+  padding-bottom:0px ;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee li {
+  font-size: 20px;
+}
+
+.marquee__content {
+  display: flex;
+  list-style: none;
+  animation: scrolling 10s linear infinite;
+}
+
+.marquee__item {
+  flex-shrink: 0;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
