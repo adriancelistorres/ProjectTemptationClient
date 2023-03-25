@@ -7,8 +7,10 @@
 .marquee {
   padding-top: 5px;
   padding-bottom:0px ;
+  margin-bottom: 0px;
   width: 100%;
   overflow: hidden;
+  height: 43.5px;
 }
 
 .marquee li {
@@ -32,4 +34,29 @@
   100% {
     transform: translateX(-100%);
   }
+}
+
+.card-group{
+  width: 1903px;
+}
+
+
+.texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+.colortext{
+  text-shadow:
+  /* -2px -2px 0 #dcdcdc, */
+   2px -2px 0 #868585,
+  -2px  2px 0 #868585,
+   2px  2px 0 #ffffff;
 }
