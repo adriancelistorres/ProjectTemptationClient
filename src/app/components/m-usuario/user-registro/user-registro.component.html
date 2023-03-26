@@ -1,3 +1,4 @@
+<div style="padding: 120px;">
 <div class="container">
     <div class="row mt-5">
         <div class="col-lg-6 b">
@@ -82,8 +83,8 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Fecha de Nacimiento</label>
-                            <input class="form-select " 
-                            formControlName="date_b" id="inputState" 
+                            <input class="form-select "
+                            formControlName="date_b" id="inputState"
                             type = "date" name = "date" min="1940-01-01" max="2002-12-31">
                             <span *ngIf="
                             formPerson.get('date_b')?.hasError('required') &&
@@ -132,11 +133,12 @@
                         >
                           agregar
                         </button>
-    
+
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>

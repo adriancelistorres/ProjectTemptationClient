@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { IBrand } from '../Interfaces/IBrand';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class BrandService {
   constructor(
     private http: HttpClient,
 
-  ) { 
+  ) {
     this.myAppUrl =  environment.endpoint;
     this.myApi =  "brands2";
     this.myApi2 = "brand2";

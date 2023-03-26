@@ -30,6 +30,7 @@ import { CollecFallComponent } from './components/m-collec-productos/collec-fall
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
+import { LoginComponent } from './components/m-usuario/login/login.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { UserRegistroComponent } from './components/m-usuario/user-registro/user
     CollecFallComponent,
     FooterComponent,
     UserRegistroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

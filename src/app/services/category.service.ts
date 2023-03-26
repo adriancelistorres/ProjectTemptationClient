@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { ICategory } from '../Interfaces/ICategorty';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class CategoryService {
 
   constructor(
     private http: HttpClient,
-  ) { 
+  ) {
     this.myAppUrl = environment.endpoint;
     this.myApi = 'categorys2';
     this.myApi2 = 'category2';

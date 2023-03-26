@@ -3,6 +3,18 @@
     position: relative;
     z-index: 2;
 }
+.body {
+  background-image: url('./../../../assets/img/menu-img/fondos/fondo6.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0;
+  margin: 0;
+    /* height: 100vh; */
+  background-attachment: fixed;
+
+
+}
 
 hr{
     position: relative;
@@ -14,7 +26,7 @@ hr{
     width: 100%;
     padding: 1px 20px;
     box-sizing: border-box;
-    background: gainsboro;
+    background: white;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -35,7 +47,7 @@ hr{
 
 #list{
     width: 100%;
-    background: gainsboro;
+    background: white;
     border-radius: 6px;
     overflow: hidden;
     margin: 0;
@@ -52,7 +64,12 @@ hr{
 }
 
 .p-price{
-    color: rgb(13, 168, 13);
+    color: black;
+    font-weight: bold;
+    background-color: white;
+border-radius: 20px;
+padding: 10px;
+text-align: center;
 }
 
 .options:hover{
@@ -175,7 +192,13 @@ hr{
     transform: rotate(180deg);
 }
 
-
+.p-name{
+  color: black;
+background-color: white;
+border-radius: 20px;
+padding: 15px;
+text-align: center;
+}
 
 
 
@@ -186,6 +209,8 @@ hr{
 
 .product img{
     transition: 0.3s all;
+    border-radius: 20px;
+
 }
 
 .product:hover img{
@@ -232,4 +257,22 @@ button{
 .uledit{
    padding-left: 50px;
    font-weight: 400;
+}
+
+.logito{
+  text-align: center;
+  font-size: 112px;
+  text-transform: uppercase;
+  font-family: 'Brush Script MT';
+  margin: 0;
+  display: 0;
+  padding-top: 10px;
+  padding-right: 15px;
+
+  text-shadow:
+  -2px -2px 0 #ffffff,
+   2px -2px 0 #ffffff,
+  -2px  2px 0 #ffffff,
+   2px  2px 0 #ffffff;
+
 }

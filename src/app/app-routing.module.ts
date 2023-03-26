@@ -20,10 +20,13 @@ import { CollecVeranoComponent } from './components/m-collec-productos/collec-ve
 import { CollecInviernoComponent } from './components/m-collec-productos/collec-invierno/collec-invierno.component';
 import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
+import { LoginComponent } from './components/m-usuario/login/login.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'menu', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent },
+
   {path: 'menu', component: MenuComponent },
   {path: 'car', component: CarritoComponent},
   {path: 'productos', component: ProductosComponent},
