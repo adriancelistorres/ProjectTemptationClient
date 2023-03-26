@@ -86,7 +86,6 @@ export class LoginComponent {
           console.log('LOGlogin',rolAlmacenado);
           console.log('El rol guardado en la clase es:', rolAlmacenado); // mostramos el valor del rol en la consola
 
-          this.router.navigate(['/menu']);
         },
         error: (e: HttpErrorResponse) => {
           this._errorServie.msjError(e);
@@ -94,6 +93,7 @@ export class LoginComponent {
         },
       });
 
+      this.router.navigate(['/productos']);
 
 
     }, 1000);

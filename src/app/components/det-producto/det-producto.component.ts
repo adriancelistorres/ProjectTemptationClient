@@ -78,6 +78,7 @@ export class DetProductoComponent {
         this.router.navigate(['/login']);
 
         this._toastr.error('debe logearse antes');
+        
       }
       const localget: any = localStorage.getItem('selectedProduct2');
       const productos = JSON.parse(localget);

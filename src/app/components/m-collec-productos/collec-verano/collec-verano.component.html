@@ -1,84 +1,147 @@
-<div>
-    <img
-      src="./assets/img/banner.png"
-      alt=""
-      style="height: 350px"
-      class="w-100"
-    />
-  </div>
-  <div class="container mt-3">
-    <div class="row" style="height: 100px;">
-      <div class="col-md-4">
-        <p>Filtrar por:</p>
-        <div class="dropdown">
-          <button class="btn btn-dark dropdown-toggle botonsito" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Seleccione una Talla
-          </button>
-          <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange($event)">
-              <label class="form-check-label" for="flexCheckChecked">
-                Talla S
-              </label>
-            </div> 
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange2($event)">
-              <label class="form-check-label" for="flexCheckChecked">
-                Talla M
-              </label>
-            </div> 
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange3($event)">
-              <label class="form-check-label" for="flexCheckChecked">
-                Talla L
-              </label>
-            </div>
-  
-          </ul>
-        </div>     
+<div class="body" style="padding: 130px;">
+  <div style="background-color: rgba(255, 255, 255, 0.226); padding: 0px;margin: 0px;border-radius: 10px;">
+<!-- <div>
+<img
+  src="./assets/img/menu-img/fondos/banner.jpg"
+  alt=""
+  style="height: 350px"
+  class="w-100"
+/>
+</div> -->
+
+<div style="text-align: center;">
+<h5 class="logito">
+Verano
+</h5></div>
+<div class="container mt-3">
+<div class="row" style="height: 100px;">
+  <!-- <div class="col-md-4">
+    <p>Filtrar por:</p>
+    <div class="selector">
+      <div id="selectField">
+        <p id="selectText">Seleccione una Talla</p>
+        <img id="arrowIcon" src="./assets/img/arrow.png" />
       </div>
-  
-  
-      <div class="col-md-4">
-        <p>Filtrar por:</p>
-        <div class="selector">
-          <div id="selectField2">
-            <p id="selectText2">Seleccione un Color</p>
-            <img id="arrowIcon2" src="./assets/img/arrow.png" />
-          </div>
-          <ul id="list2" class="hide">
-            <li class="options2">
-              <p>Rojo</p>
-            </li>
-            <li class="options2">
-              <p>Azul</p>
-            </li>
-            <li class="options2">
-              <p>Verde</p>
-            </li>
-            <li class="options2">
-              <p>Amarillo</p>
-            </li>
-          </ul>
+      <ul id="list" class="hide">
+        <li class="options">
+          <p>XSmall</p>
+        </li>
+        <li class="options">
+          <p>Small</p>
+        </li>
+        <li class="options">
+          <p>Medium</p>
+        </li>
+        <li class="options">
+          <p>Large</p>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+  <div class="col-md-4">
+    <p style="color: white;">Filtrar por:</p>
+    <div class="dropdown">
+      <button class="btn btn-dark dropdown-toggle botonsito" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Seleccione una Talla
+      </button>
+      <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange($event)">
+          <label class="form-check-label" for="flexCheckChecked">
+            Talla S
+          </label>
         </div>
-      </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange2($event)">
+          <label class="form-check-label" for="flexCheckChecked">
+            Talla M
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange3($event)">
+          <label class="form-check-label" for="flexCheckChecked">
+            Talla L
+          </label>
+        </div>
+
+      </ul>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-          <hr>
+  </div>
+
+
+  <div class="col-md-4">
+    <p style="color: white;">Filtrar por:</p>
+    <div class="selector">
+      <div id="selectField2">
+        <p id="selectText2">Seleccione un Color</p>
+        <img id="arrowIcon2" src="./assets/img/arrow.png" />
       </div>
+      <ul id="list2" class="hide">
+        <li class="options2">
+          <p>Rojo</p>
+        </li>
+        <li class="options2">
+          <p>Azul</p>
+        </li>
+        <li class="options2">
+          <p>Verde</p>
+        </li>
+        <li class="options2">
+          <p>Amarillo</p>
+        </li>
+      </ul>
     </div>
-    <div class="row">
-          <div class="col-md-4" *ngFor="let item of listProducts" >
-            <div class="product text-center" *ngIf="item.state == 1">
-              <img class="img-fluid mb-3 sizeeimg" src="{{item.image_using}}" alt="">
-              <!-- <h3 *ngIf="item.state == 1"></h3> -->
-              <h5 class="p-name" >{{item.name_p}}</h5>
-              <h4 class="p-price">S/{{item.price}}</h4>
-                <button class="buy-btn" (click)="getOneProduct(item.idproduc)">Ver Detalles</button>
-            </div>
+  </div>
+
+  <!-- <div class="col-md-3" style="margin-left: 94px">
+    <p>Ordenar Por:</p>
+    <div class="selector">
+      <div id="selectField3">
+        <p id="selectText3">Seleccione un Opción</p>
+        <img id="arrowIcon3" src="./assets/img/arrow.png" />
+      </div>
+      <ul id="list3" class="hide">
+        <li class="options3">
+          <p>Alfabeticamente, A - Z</p>
+        </li>
+        <li class="options3">
+          <p>Alfabeticamente, Z - A</p>
+        </li>
+        <li class="options3">
+          <p>Precio de Menor a Mayor</p>
+        </li>
+        <li class="options3">
+          <p>Precio de Mayor a Menor</p>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <hr>
+  </div>
+</div>
+<div class="row">
+      <div class="col-md-4" *ngFor="let item of listProducts" >
+        <div class="product text-center" *ngIf="item.state == 1">
+          <img class="img-fluid mb-3 sizeeimg"  (click)="getOneProduct(item.idproduc)" src="{{item.image_using}}" alt="">
+          <!-- <h3 *ngIf="item.state == 1"></h3> -->
+          <div style="text-align: center; width: 50%;margin: 0 auto;"><h5 class="p-name" >{{item.name_p}}</h5></div>
+         <div style="text-align: center; width: 30%;margin: 0 auto;"> <h5 class="p-price">S/{{item.price}}</h5></div>
+            <button class="buy-btn" (click)="getOneProduct(item.idproduc)">Ver Detalles</button>
         </div>
     </div>
-    
-  </div>
-    
+
+  <!-- <div class="col-md-4 ">
+      <div class="product text-center">
+          <img class="img-fluid mb-3 sizeeimg" src="./assets/img/blusa_roja.png" alt="">
+          <h5 class="p-name">CAMISA NK - ROJO</h5>
+          <h4 class="p-price">S/40.00</h4>
+          <button class="buy-btn">Ver Detalles</button>
+      </div>
+  </div>  --></div>
+</div>
+
+</div>
+</div>

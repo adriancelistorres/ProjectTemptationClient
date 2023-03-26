@@ -2,7 +2,7 @@
     background-color: rgb(226, 232, 237);
     border-radius: 10px;
   }
-  
+
   .imagen{
     height: 30px;
     width:  30px;
@@ -20,10 +20,21 @@
     border-top: 3px solid rgb(0, 0, 0);
     width: 80%;
   }
-  
+
 
   @media(max-width: 600px) {
     .tabla{
       padding: 0;
     }
+  }
+
+  .body {
+    background-image: url('../../../assets/img/menu-img/fondos/fondo3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+
   }
