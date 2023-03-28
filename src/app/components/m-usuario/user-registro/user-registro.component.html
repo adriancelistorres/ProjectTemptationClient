@@ -37,6 +37,16 @@
                                 <strong style="color:red">El campo Apellido no debe contener números/signos o más de 40 caracteres</strong>
                             </span>
                         </div>
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label">Email</label>
+                            <input formControlName="email"
+                            class="form-control"
+                            id="exampleInputPassword1"
+                            type="email">
+                            <span *ngIf="formPerson.get('email')?.hasError('required') && formPerson.get('email')?.touched">
+                                <strong style="color:orangered">El campo Email es requerido</strong>
+                            </span>
+                        </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Dni</label>
                             <input formControlName="dni"

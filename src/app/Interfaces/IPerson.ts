@@ -10,5 +10,5 @@ export interface IPerson{
     username?: string|any,
     password: string|any,
     state: number|any,
-    key?: string|any
+    email?: string|any
 }

@@ -34,6 +34,7 @@ export class UserRegistroComponent {
       username: ['', Validators.required],
       password: ['', Validators.required],
       //state: ['', Validators.required]
+      email: ['',Validators.required]
     });
   }
 
@@ -48,6 +49,7 @@ export class UserRegistroComponent {
       date_b: this.formPerson.get('date_b')?.value,
       username: this.formPerson.get('username')?.value,
       password: this.formPerson.get('password')?.value,
+      email: this.formPerson.get('email')?.value,
       state: 1
     };
     this._personService.addPerson(person).subscribe({next: () =>{
