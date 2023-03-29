@@ -21,6 +21,7 @@ import { CollecInviernoComponent } from './components/m-collec-productos/collec-
 import { CollecFallComponent } from './components/m-collec-productos/collec-fall/collec-fall.component';
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
 import { LoginComponent } from './components/m-usuario/login/login.component';
+import { ReclamosComponent } from './components/reclamos/reclamos.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
   {path: 'productos/verano', component: CollecVeranoComponent},
   {path: 'productos/invierno', component: CollecInviernoComponent},
   {path: 'productos/otoño', component: CollecFallComponent},
-  {path: "registro",component: UserRegistroComponent}
+  {path: "registro",component: UserRegistroComponent},
+  {path: 'reclamos',component: ReclamosComponent}
 
 
 ];

@@ -1,0 +1,59 @@
+.logito{
+    text-align: center;
+    font-size: 112px;
+  text-transform: uppercase;
+  font-family: 'Brush Script MT';
+  margin: 0;
+  display: 0;
+  padding-top: 10px;
+  padding-right: 15px;
+  
+  text-shadow:
+  -2px -2px 0 #ffffff,
+   2px -2px 0 #ffffff,
+   -2px  2px 0 #ffffff,
+   2px  2px 0 #ffffff;
+  
+  }
+
+
+    .p-name{
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    }
+    .p-price{
+    color: black;
+      font-weight: bold;
+      background-color: white;
+      border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    }
+
+    .body {
+        background-image: url('../../../assets/img/menu-img/fondos/fondo7.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 0;
+        margin: 0;
+        /* height: 100vh; */
+        background-attachment: fixed;
+        
+}
+.color{
+  background-color: rgb(226, 232, 237);
+  border-radius: 10px;
+}
+
+.imagen{
+  height: 30px;
+  width:  30px;
+}
+
+.agregar{
+  text-align: end;
+}

@@ -31,6 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
 import { LoginComponent } from './components/m-usuario/login/login.component';
+import {ReclamosComponent} from './components/reclamos/reclamos.component'
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { LoginComponent } from './components/m-usuario/login/login.component';
     FooterComponent,
     UserRegistroComponent,
     LoginComponent,
+    ReclamosComponent
   ],
   imports: [
     BrowserModule,
