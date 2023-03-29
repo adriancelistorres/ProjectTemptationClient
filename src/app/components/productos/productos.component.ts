@@ -16,6 +16,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class ProductosComponent implements OnInit {
   tallas = ['S', 'M', 'L', 'XL']
   tallaSeleccionada: string|any;
+  colorSeleccionada: String | any
   listProducts: IProducts[] = [];
   listSize: ISize[] = [];
   listcolor: IColor[] = []
@@ -43,7 +44,8 @@ export class ProductosComponent implements OnInit {
     this.getProducts();
     this.miSize();
     this.micolor();
-  
+    this.SizeColorDetector();
+
   }
 
   getProducts() {
@@ -57,49 +59,6 @@ export class ProductosComponent implements OnInit {
     // this.detprodview.getOneProduct(id);
     
   }
-
-  /*Piero Avance */
-  handleidSizeChange(event: any){
-    const isChecked = event.target.checked;
-    const idsize = event.target.value;
-    if(isChecked){
-      this.idsize = idsize;
-      console.log(idsize)
-      this._productService.getProducts().subscribe(
-        (options: any[]) => {
-          this.listProducts = options.filter(option=>option.idsize == idsize);
-          console.log("LOG1",this.listProducts)
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      )
-    }else{
-      this.getProducts();
-    }    
-  }
-
-    /*Piero Avance */
-    handleidColorChange(event: any){
-      const isChecked = event.target.checked;
-      const idcolor = event.target.value;
-      if(isChecked){
-        this.idcolor = idcolor;
-        console.log("IDCOLOR",idcolor)
-        this._productService.getProducts().subscribe(
-          (options: any[]) => {
-            
-            this.listProducts = options.filter(option=>option.idcolor == idcolor);
-            console.log("LOG1",this.listProducts)
-          },
-          (error: any) => {
-            console.log(error);
-          }
-        )
-      }else{
-        this.getProducts();
-      }   
-    }
 
   miSize() {
     this._sizeService.getSize().subscribe(
@@ -122,6 +81,80 @@ export class ProductosComponent implements OnInit {
       }
     )
   }
+
+  /*Piero Avance */
+  handleidSizeChange(event: any){
+    const isChecked = event.target.checked;
+    if(isChecked){
+      this.tallaSeleccionada = event.target.value;
+      console.log("SIZE",this.tallaSeleccionada)
+    }else{
+      this.tallaSeleccionada = null
+    }    
+    this.SizeColorDetector()
+  }
+
+    /*Piero Avance */
+    handleidColorChange(event: any){
+      const isChecked = event.target.checked;
+      if(isChecked){
+        this.colorSeleccionada = event.target.value;
+        console.log("COLOR",this.colorSeleccionada)
+      }else{
+        this.colorSeleccionada = null
+      }   
+      this.SizeColorDetector()
+    }
+
+    SizeColorDetector(){
+
+      if(this.colorSeleccionada != null && this.tallaSeleccionada != null){
+        this.handleComboChange(this.tallaSeleccionada,this.colorSeleccionada);
+      }else if(this.colorSeleccionada != null){
+        this._productService.getProducts().subscribe(
+          (options: any[]) => {
+            this.listProducts = options.filter(option=>option.idsize == this.colorSeleccionada);
+            console.log("LOG1",this.listProducts)
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+      }else if(this.tallaSeleccionada != null){
+        this._productService.getProducts().subscribe(
+          (options: any[]) => {
+            this.listProducts = options.filter(option=>option.idsize == this.tallaSeleccionada);
+            console.log("LOG1",this.listProducts)
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+      }else{
+        this.getProducts();
+      }
+      
+    
+    }
+
+  handleComboChange(size: any, color: any){
+        if(color!= null && size != null){
+          console.log("COlOR",this.colorSeleccionada)
+          console.log("SIZE",this.tallaSeleccionada)
+          this._productService.getProducts().subscribe(
+            (options: any[]) => {
+              this.listProducts = options.filter(option=>option.idsize == size && option.idcolor == color);
+              console.log("LOG1",this.listProducts)
+            },
+            (error: any) => {
+              console.log("ERROR DE METODO COMBO",error);
+            }
+          );
+      }
+    }
+  
+      
+
 
 
   // selectSize_S(){
