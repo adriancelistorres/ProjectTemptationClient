@@ -59,10 +59,10 @@ export class LoginComponent {
           this.cookiesService.set('tokenclient', JSON.stringify(token));
           const tok:any=token
           // console.log('uno',tok);
-          const finalToken = tok['tokenclient'];
+          const finalToken = tok['token'];
           // console.log('dos',finalToken);
           const decodedToken:any = jwt_decode(finalToken);
-          // console.log('tres',decodedToken);
+          console.log('tres',decodedToken);
           const role = decodedToken.rol;
           const name = decodedToken.name;
           const lastname = decodedToken.lastname;
@@ -76,6 +76,7 @@ export class LoginComponent {
           localStorage.setItem('name', name);
           localStorage.setItem('lastname', lastname);
           localStorage.setItem('dni', dni);
+          let idAlmaceneado = localStorage.getItem('idperson');
 
           let rolAlmacenado = localStorage.getItem('rollogin');
           let nameAlmacenado = localStorage.getItem('rollogin');
@@ -83,7 +84,8 @@ export class LoginComponent {
           let usernameAlmacenado = localStorage.getItem('rollogin');
           let dniAlmacenado = localStorage.getItem('rollogin');
 
-          console.log('LOGlogin',rolAlmacenado);
+          console.log('LOGloginPERSON',idAlmaceneado);
+          console.log('LOGloginrol',rolAlmacenado);
           console.log('El rol guardado en la clase es:', rolAlmacenado); // mostramos el valor del rol en la consola
 
         },
