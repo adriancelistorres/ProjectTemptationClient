@@ -5,7 +5,7 @@
 }
 
 hr{
-    position: relative;
+  position: relative;
     z-index: 1;
     color: black;
     border-width: 3px;
@@ -14,7 +14,7 @@ hr{
     width: 100%;
     padding: 1px 20px;
     box-sizing: border-box;
-    background: gainsboro;
+    background: white;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -34,8 +34,8 @@ hr{
 }
 
 #list{
-    width: 100%;
-    background: gainsboro;
+  width: 100%;
+    background: white;
     border-radius: 6px;
     overflow: hidden;
     margin: 0;
@@ -51,20 +51,17 @@ hr{
     box-sizing: border-box;
 }
 
-.p-price{
-    color: rgb(13, 168, 13);
-}
 
 .options:hover{
-    color: white;
-    background-color: black;
+  color: white;
+    background-color: red;
 }
 .hide{
     visibility: hidden;
 }
 
 .rotate{
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 
@@ -79,20 +76,20 @@ hr{
     justify-content: space-between;
     cursor: pointer;
     margin-bottom: 10px;
-}
+  }
 
-#selectText2{
+  #selectText2{
     margin-top: 6px;
     margin-bottom: 6px;
-}
+  }
 
-#selectField2 img{
+  #selectField2 img{
     width: 16px;
     transition: transform 0.45s;
 }
 
 #list2{
-    width: 100%;
+  width: 100%;
     background: gainsboro;
     border-radius: 6px;
     overflow: hidden;
@@ -102,28 +99,28 @@ hr{
 }
 
 .options2{
-    width: 100%;
-    padding: 7px;
-    list-style: none;
+  width: 100%;
+  padding: 7px;
+  list-style: none;
     cursor: pointer;
     box-sizing: border-box;
-}
+  }
 
 .options2:hover{
-    color: white;
+  color: white;
     background-color: black;
 }
 .hide2{
     visibility: hidden;
-}
+  }
 
 .rotate2{
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 
 #selectField3{
-    width: 100%;
+  width: 100%;
     padding: 1px 20px;
     box-sizing: border-box;
     background: gainsboro;
@@ -133,23 +130,23 @@ hr{
     justify-content: space-between;
     cursor: pointer;
     margin-bottom: 10px;
-}
+  }
 
 #selectText3{
     margin-top: 6px;
     margin-bottom: 6px;
-}
+  }
 
 #selectField3 img{
-    width: 16px;
-    transition: transform 0.45s;
+  width: 16px;
+  transition: transform 0.45s;
 }
 
 #list3{
-    width: 100%;
-    background: gainsboro;
-    border-radius: 6px;
-    overflow: hidden;
+  width: 100%;
+  background: gainsboro;
+  border-radius: 6px;
+  overflow: hidden;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -164,48 +161,49 @@ hr{
 }
 
 .options3:hover{
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
 .hide3{
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .rotate3{
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-
 
 
 
 
 .product{
-    cursor: pointer;
+  cursor: pointer;
     margin-bottom: 2rem;
-}
+  }
 
-.product img{
+  .product img{
     transition: 0.3s all;
-}
+    border-radius: 20px;
 
-.product:hover img{
+  }
+
+  .product:hover img{
     opacity: 0.7;
-}
+  }
 
 .product .buy-btn{
-    background: #fb774b;
-    transform: translateY(20px);
-    opacity: 0;
+  background: #fb774b;
+  transform: translateY(20px);
+  opacity: 0;
     transition: 0.3s all;
-}
+  }
 
 .product:hover .buy-btn{
-    transform: translateY(0);
-    opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 button{
-    font-size: 0.8rem;
+  font-size: 0.8rem;
     font-weight: 700;
     outline: none;
     border: none;
@@ -216,57 +214,66 @@ button{
     text-transform: uppercase;
     transition: 0.3s ease;
     border-radius: 5px;
+    width: 150px;
+    height: 45px;
+  }
+
+  .sizeeimg{
+  width: 390px;
+  height: 570px;
 }
 
-.sizeeimg{
-    width: 390px;
-    height: 570px;
+.botonsito{
+    width: 355px;
 }
 
+.uledit{
+   padding-left: 50px;
+   font-weight: 400;
+  }
 
+  .logito{
+    text-align: center;
+    font-size: 112px;
+  text-transform: uppercase;
+  font-family: 'Brush Script MT';
+  margin: 0;
+  display: 0;
+  padding-top: 10px;
+  padding-right: 15px;
 
-.logito{
-  text-align: center;
-  font-size: 112px;
-text-transform: uppercase;
-font-family: 'Brush Script MT';
-margin: 0;
-display: 0;
-padding-top: 10px;
-padding-right: 15px;
-
-text-shadow:
--2px -2px 0 #ffffff,
- 2px -2px 0 #ffffff,
- -2px  2px 0 #ffffff,
- 2px  2px 0 #ffffff;
+  text-shadow:
+  -2px -2px 0 #ffffff,
+   2px -2px 0 #ffffff,
+   -2px  2px 0 #ffffff,
+   2px  2px 0 #ffffff;
 
 }
 
 .body {
-background-image: url('../../../../assets/img/menu-img/fondos/fondo6.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center center;
-padding: 0;
-margin: 0;
-/* height: 100vh; */
-background-attachment: fixed;
+  background-image: url('./../../../../assets/img/menu-img/fondos/fondo9.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0;
+  margin: 0;
+  /* height: 100vh; */
+  background-attachment: fixed;
 
 
 }
 .p-name{
-color: black;
-background-color: white;
+  color: black;
+  background-color: white;
 border-radius: 20px;
 padding: 15px;
 text-align: center;
 }
 .p-price{
-color: black;
-  font-weight: bold;
-  background-color: white;
-  border-radius: 20px;
+  color: black;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 20px;
 padding: 10px;
 text-align: center;
 }

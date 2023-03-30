@@ -4,6 +4,9 @@ import { ISize } from '../../../Interfaces/ISize';
 import { CargarscriptService } from '../../../services/cargarscript.service';
 import { ProductosService } from '../../../services/productos.service';
 import { Router } from '@angular/router';
+import { IColor } from 'src/app/Interfaces/IColor';
+import { SizeService } from 'src/app/services/size.service';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-collec-invierno',
@@ -17,11 +20,19 @@ export class CollecInviernoComponent {
   listSize: ISize[] = [];
   selectedOption: string[] = ['S', 'M', 'L'];
   isChecked: boolean = false;
+  tallaSeleccionada: string|any;
+  colorSeleccionada: String | any
+  listcolor: IColor[] = []
+  idcolor: any|undefined;
+  idsize: any|undefined;
+
 
   constructor(
     private _cargarScript: CargarscriptService,
     private _productService: ProductosService,
-    private router:Router
+    private router:Router,
+    private _sizeService: SizeService,
+    private _colorservice: ColorService,
     ){
     _cargarScript.miScript(["produc/produc"])
     this._productService.RefreshRequired.subscribe((result)=> {
@@ -31,48 +42,30 @@ export class CollecInviernoComponent {
 
   ngOnInit(){
     this.getOnlyInvierno();
+    this.miSize();
+    this.micolor();
+    this.SizeColorDetector();
   }
 
   getOnlyInvierno() {
     this._productService.getProducts().subscribe((data: IProducts[]) => 
     {
       this.listProducts = data.filter(op=>op.idstyles == 4);
+      console.log("PRODUCTOS",this.listProducts)
     });
   }
 
   getOneProduct(id:number){
     this.router.navigate(['/detproducto',id])
+
     // this.detprodview.getOneProduct(id);
     
   }
 
-  selectSize_S(){
-    this._productService.getProducts().subscribe(
-      (options: any[]) => {
-        this.listProducts = options.filter(option=>option.idsize == 1 && option.idstyles == 4);
-        console.log("LOG1",this.listProducts)
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
-  selectSize_M(){
-    this._productService.getProducts().subscribe(
-      (options: any[]) => {
-        this.listProducts = options.filter(option=>option.idsize == 2 && option.idstyles == 4);
-        console.log("LOG1",this.listProducts)
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
-  selectSize_L(){
-    this._productService.getProducts().subscribe(
-      (options: any[]) => {
-        this.listProducts = options.filter(option=>option.idsize == 3 && option.idstyles == 4);
-        console.log("LOG1",this.listProducts)
+  miSize() {
+    this._sizeService.getSize().subscribe(
+      (option5: any[]) => {
+        this.listSize = option5.filter(op=>op.state == 1);
       },
       (error: any) => {
         console.log(error);
@@ -80,33 +73,88 @@ export class CollecInviernoComponent {
     );
   }
 
+  micolor(){
+    this._colorservice.getColors().subscribe(
+      (option5: any[]) => {
+        this.listcolor = option5.filter(op=>op.state == 1);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
+  }
 
-  handleChange(event: any) {
-    this.isChecked = event.target.checked;
-    if (this.isChecked) {
-      this.selectSize_S()
-    }else if(this.isChecked){
-      this.selectSize_M();
-    } 
-    else {
-      this.getOnlyInvierno()
-    }
+  /*Piero Avance */
+  handleidSizeChange(event: any){
+    const isChecked = event.target.checked;
+    if(isChecked){
+      this.tallaSeleccionada = event.target.value;
+      console.log("SIZE",this.tallaSeleccionada)
+    }else{
+      this.tallaSeleccionada = null
+    }    
+    this.SizeColorDetector()
   }
-  handleChange2(event: any) {
-    this.isChecked = event.target.checked;
-    if (this.isChecked) {
-      this.selectSize_M()
-    } else {
-      this.getOnlyInvierno()
+
+    /*Piero Avance */
+    handleidColorChange(event: any){
+      const isChecked = event.target.checked;
+      if(isChecked){
+        this.colorSeleccionada = event.target.value;
+        console.log("COLOR",this.colorSeleccionada)
+      }else{
+        this.colorSeleccionada = null
+      }   
+      this.SizeColorDetector()
     }
-  }
-  handleChange3(event: any) {
-    this.isChecked = event.target.checked;
-    if (this.isChecked) {
-      this.selectSize_L()
-    } else {
-      this.getOnlyInvierno()
+
+    SizeColorDetector(){
+
+      if(this.colorSeleccionada != null && this.tallaSeleccionada != null){
+        this.handleComboChange(this.tallaSeleccionada,this.colorSeleccionada);
+      }else if(this.colorSeleccionada != null){
+        this._productService.getProducts().subscribe(
+          (options: any[]) => {
+            this.listProducts = options.filter(option=>option.idcolor == this.colorSeleccionada && option.idstyles == 4);
+            console.log("LOG1",this.listProducts)
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+      }else if(this.tallaSeleccionada != null){
+        this._productService.getProducts().subscribe(
+          (options: any[]) => {
+            this.listProducts = options.filter(option=>option.idsize == this.tallaSeleccionada && option.idstyles == 4);
+            console.log("LOG1",this.listProducts)
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+      }else{
+        this.getOnlyInvierno();
+      }
     }
-  }
+
+  handleComboChange(size: any, color: any){
+        if(color!= null && size != null){
+          console.log("COlOR",this.colorSeleccionada)
+          console.log("SIZE",this.tallaSeleccionada)
+          this._productService.getProducts().subscribe(
+            (options: any[]) => {
+              this.listProducts = options.filter(option=>option.idsize == size && option.idcolor == color && option.idstyles == 4);
+              console.log("LOG1",this.listProducts)
+            },
+            (error: any) => {
+              console.log("ERROR DE METODO COMBO",error);
+            }
+          );
+      }
+    }
+  
+
+
+  
 
 }

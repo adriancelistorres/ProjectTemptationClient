@@ -45,50 +45,31 @@ Vestidos
         Seleccione una Talla
       </button>
       <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange($event)">
+        <div class="form-check" *ngFor="let size of listSize">
+          <input type="checkbox" class="form-check-input" [value]="size.idsize" (change)="handleidSizeChange($event)">
           <label class="form-check-label" for="flexCheckChecked">
-            Talla S
+              {{size.name_size}}
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange2($event)">
-          <label class="form-check-label" for="flexCheckChecked">
-            Talla M
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="handleChange3($event)">
-          <label class="form-check-label" for="flexCheckChecked">
-            Talla L
-          </label>
-        </div>
-
       </ul>
     </div>
   </div>
-
+  <div class="col-md-4">
+  </div>
 
   <div class="col-md-4">
     <p style="color: white;">Filtrar por:</p>
-    <div class="selector">
-      <div id="selectField2">
-        <p id="selectText2">Seleccione un Color</p>
-        <img id="arrowIcon2" src="./assets/img/arrow.png" />
-      </div>
-      <ul id="list2" class="hide">
-        <li class="options2">
-          <p>Rojo</p>
-        </li>
-        <li class="options2">
-          <p>Azul</p>
-        </li>
-        <li class="options2">
-          <p>Verde</p>
-        </li>
-        <li class="options2">
-          <p>Amarillo</p>
-        </li>
+    <div class="dropdown">
+      <button class="btn btn-dark dropdown-toggle botonsito" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Seleccione una Color
+      </button>
+      <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
+        <div class="form-check" *ngFor="let size of listcolor">
+          <input type="checkbox" class="form-check-input" [value]="size.idcolor" (change)="handleidColorChange($event)">
+          <label class="form-check-label" for="flexCheckChecked">
+              {{size.name_col}}
+          </label>
+        </div>
       </ul>
     </div>
   </div>

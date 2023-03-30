@@ -15,13 +15,13 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class ProductosComponent implements OnInit {
   tallas = ['S', 'M', 'L', 'XL']
-  tallaSeleccionada: string|any;
-  colorSeleccionada: String | any
   listProducts: IProducts[] = [];
   listSize: ISize[] = [];
-  listcolor: IColor[] = []
   selectedOption: string[] = ['S', 'M', 'L'];
   isChecked: boolean = false;
+  tallaSeleccionada: string|any;
+  colorSeleccionada: String | any
+  listcolor: IColor[] = []
   idcolor: any|undefined;
   idsize: any|undefined;
   constructor(
@@ -45,7 +45,6 @@ export class ProductosComponent implements OnInit {
     this.miSize();
     this.micolor();
     this.SizeColorDetector();
-
   }
 
   getProducts() {
@@ -113,7 +112,7 @@ export class ProductosComponent implements OnInit {
       }else if(this.colorSeleccionada != null){
         this._productService.getProducts().subscribe(
           (options: any[]) => {
-            this.listProducts = options.filter(option=>option.idsize == this.colorSeleccionada);
+            this.listProducts = options.filter(option=>option.idcolor == this.colorSeleccionada);
             console.log("LOG1",this.listProducts)
           },
           (error: any) => {
@@ -152,102 +151,4 @@ export class ProductosComponent implements OnInit {
           );
       }
     }
-  
-      
-
-
-
-  // selectSize_S(){
-  //   this._productService.getProducts().subscribe(
-  //     (options: any[]) => {
-  //       this.listProducts = options.filter(option=>option.idsize == 1);
-  //       console.log("LOG1",this.listProducts)
-  //     },
-  //     (error: any) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-  // selectSize_M(){
-  //   this._productService.getProducts().subscribe(
-  //     (options: any[]) => {
-  //       this.listProducts = options.filter(option=>option.idsize == 2);
-  //       console.log("LOG1",this.listProducts)
-  //     },
-  //     (error: any) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-  // selectSize_L(){
-  //   this._productService.getProducts().subscribe(
-  //     (options: any[]) => {
-  //       this.listProducts = options.filter(option=>option.idsize == 3);
-  //       console.log("LOG1",this.listProducts)
-  //     },
-  //     (error: any) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
-
-  // handleChange(event: any) {
-  //   this.isChecked = event.target.checked;
-  //   if (this.isChecked) {
-  //     this.selectSize_S()
-  //   }else if(this.isChecked){
-  //     this.selectSize_M();
-  //   } 
-  //   else {
-  //     this.getProducts()
-  //   }
-  // }
-  // handleChange2(event: any) {
-  //   this.isChecked = event.target.checked;
-  //   if (this.isChecked) {
-  //     this.selectSize_M()
-  //   } else {
-  //     this.getProducts()
-  //   }
-  // }
-  // handleChange3(event: any) {
-  //   this.isChecked = event.target.checked;
-  //   if (this.isChecked) {
-  //     this.selectSize_L()
-  //   } else {
-  //     this.getProducts()
-  //   }
-  // }
-
-  // handleChange(event: any) {
-  //   this.isChecked = event.target.checked;
-  //   if (this.isChecked && this.selectedOption[0]) {
-  //     console.log("LOG2:",this.selectedOption[0])
-  //     this.selectSize_S()
-  //   }else if(this.isChecked && this.selectedOption[1])
-  //   {
-  //     this.selectSize_M()
-  //     console.log("LOG3:",this.selectedOption[1])
-  //   } else if(this.isChecked && this.selectedOption[2])
-  //   {
-  //     this.selectSize_L()
-  //   } 
-  //   else {
-  //     this.getProducts()
-  //   }
-  // }
-
-
-  // SelectSize(){
-  //   if (this.selectedOption.includes('S')) {
-  //     this.selectSize_S()
-  //   }
-  //   if (this.selectedOption.includes('M')) {
-  //     this.selectSize_M()
-  //   }
-  //   if (this.selectedOption.includes('L')) {
-  //     this.selectSize_L()
-  //   }
-  // }
 }
