@@ -7,7 +7,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CollectionsComponent } from './components/collections/collections.component';
-import { CargarscriptService } from './services/cargarscript.service';
 
 import { MenuComponent } from './components/menu/menu.component';
 
@@ -69,7 +68,7 @@ import { LoginComponent } from './components/m-usuario/login/login.component';
       preventDuplicates: true,}),
       ReactiveFormsModule
   ],
-  providers: [CargarscriptService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

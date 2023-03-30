@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CargarscriptService } from '../../services/cargarscript.service';
 import { ProductosService } from '../../services/productos.service';
 import { IProducts } from '../../Interfaces/IProducts';
 import { Router } from '@angular/router';
@@ -25,22 +24,17 @@ export class ProductosComponent implements OnInit {
   idcolor: any|undefined;
   idsize: any|undefined;
   constructor(
-    private _cargarScript: CargarscriptService,
     private _productService: ProductosService,
     private router:Router,
     private _sizeService: SizeService,
     private _colorservice: ColorService,
     ){
-    _cargarScript.miScript(["produc/produc"])
-    this._productService.RefreshRequired.subscribe((result)=> {
-      this.getProducts();
-    })
+
   }
 
   // @ViewChild(DetProductoComponent)detprodview!: DetProductoComponent;
 
   ngOnInit(){
-    this._cargarScript.miScript(["produc/produc"])
     this.getProducts();
     this.miSize();
     this.micolor();
@@ -56,7 +50,7 @@ export class ProductosComponent implements OnInit {
   getOneProduct(id:number){
     this.router.navigate(['/detproducto',id])
     // this.detprodview.getOneProduct(id);
-    
+
   }
 
   miSize() {
@@ -89,7 +83,7 @@ export class ProductosComponent implements OnInit {
       console.log("SIZE",this.tallaSeleccionada)
     }else{
       this.tallaSeleccionada = null
-    }    
+    }
     this.SizeColorDetector()
   }
 
@@ -101,7 +95,7 @@ export class ProductosComponent implements OnInit {
         console.log("COLOR",this.colorSeleccionada)
       }else{
         this.colorSeleccionada = null
-      }   
+      }
       this.SizeColorDetector()
     }
 
@@ -132,8 +126,8 @@ export class ProductosComponent implements OnInit {
       }else{
         this.getProducts();
       }
-      
-    
+
+
     }
 
   handleComboChange(size: any, color: any){

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IProducts } from '../../../Interfaces/IProducts';
-import { CargarscriptService } from '../../../services/cargarscript.service';
 import { ProductosService } from '../../../services/productos.service';
 import { Router } from '@angular/router';
 import { ISize } from '../../../Interfaces/ISize';
@@ -27,16 +26,12 @@ export class ProdPolerasComponent {
   idsize: any|undefined;
 
   constructor(
-    private _cargarScript: CargarscriptService,
     private _productService: ProductosService,
     private router:Router,
     private _sizeService: SizeService,
     private _colorservice: ColorService,
     ){
-    _cargarScript.miScript(["produc/produc"])
-    this._productService.RefreshRequired.subscribe((result)=> {
-      this.getOnlyPoleras();
-    })
+
   }
 
   ngOnInit(){
@@ -47,7 +42,7 @@ export class ProdPolerasComponent {
   }
 
   getOnlyPoleras() {
-    this._productService.getProducts().subscribe((data: IProducts[]) => 
+    this._productService.getProducts().subscribe((data: IProducts[]) =>
     {
       this.listProducts = data.filter(op=>op.idcat == 2);
     });
@@ -56,7 +51,7 @@ export class ProdPolerasComponent {
   getOneProduct(id:number){
     this.router.navigate(['/detproducto',id])
     // this.detprodview.getOneProduct(id);
-    
+
   }
   miSize() {
     this._sizeService.getSize().subscribe(
@@ -88,7 +83,7 @@ export class ProdPolerasComponent {
       console.log("SIZE",this.tallaSeleccionada)
     }else{
       this.tallaSeleccionada = null
-    }    
+    }
     this.SizeColorDetector()
   }
 
@@ -100,7 +95,7 @@ export class ProdPolerasComponent {
         console.log("COLOR",this.colorSeleccionada)
       }else{
         this.colorSeleccionada = null
-      }   
+      }
       this.SizeColorDetector()
     }
 
