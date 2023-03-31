@@ -31,7 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
 import { LoginComponent } from './components/m-usuario/login/login.component';
-import {ReclamosComponent} from './components/reclamos/reclamos.component'
+import {ReclamosComponent} from './components/reclamos/reclamos.component';
+import { Pipev2Pipe } from './shared/pipev2.pipe';
+import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component'
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import {ReclamosComponent} from './components/reclamos/reclamos.component'
     FooterComponent,
     UserRegistroComponent,
     LoginComponent,
-    ReclamosComponent
+    ReclamosComponent,
+    Pipev2Pipe,
+    DetReclamosComponent
   ],
   imports: [
     BrowserModule,
