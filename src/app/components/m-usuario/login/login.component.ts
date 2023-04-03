@@ -18,6 +18,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   loading: boolean = false;
+  routeo : any
    rol:number|any;
 
   constructor(
@@ -72,6 +73,7 @@ export class LoginComponent {
           // console.log('rol:', role);
           this.rol = role;
           localStorage.setItem('rollogin', this.rol);
+          localStorage.setItem('idperson', decodedToken.idperson);
           localStorage.setItem('username', username);
           localStorage.setItem('name', name);
           localStorage.setItem('lastname', lastname);
@@ -95,10 +97,15 @@ export class LoginComponent {
         },
       });
        const url :any = localStorage.getItem('url');
-       const routeo = `${url.replace(/"/g, '')}`;
+       if(url == ""){
+        this.routeo = `${url.replace(/"/g, '')}`;
+        
+       }else{
+        this.routeo  = `/menu`;
+       }
        console.log("url",url)
-
-      this.router.navigate([routeo]);
+       this.router.navigate([this.routeo ]);
+      
 
 
     }, 1000);

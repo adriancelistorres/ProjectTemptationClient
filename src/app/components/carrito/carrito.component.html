@@ -1,86 +1,95 @@
 <div  class="body" style="padding: 120px;">
   <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-6 " style="border-radius:10px ;" >
-            <table class="table rounded-lg rounded border border-secondary mt-3" style="background-color: whitesmoke;border-radius:10px" >
-                <thead class="text-center w-100"  >
-                  <tr class="">
-                    <th class="w-25 text-danger">Imagen</th>
-                    <th scope="col " class="text-danger">Nombre</th>
-                    <th scope="col " class="text-danger">Precio</th>
-                    <th scope="col "class="text-danger">Cantidad</th>
-                    <th scope="col "class="text-danger">Total</th>
-                    <th scope="col "class="text-danger"></th>
-                    <th scope="col "class="text-danger"></th>
-                  </tr>
-                </thead>
-                <tbody class="text-center align-middle">
-                  <tr *ngFor="let Prueba of selectedProduct; let i = index ; " >
-                    <td><img class="img-fluid w-100" src="{{Prueba.image_using}}" alt=""></td>
-                    <td class="pb-2">{{Prueba.name_p}}</td>
-                    <td class="pb-2">{{Prueba.price}}</td>
-                    <td class="w-25">
-                      <div class="input-group">
-                        <div class="input-group-append">
-                          <button type="button" class="btn btn-outline-secondary"class="imagen" (click)="decrementValue(i)">-</button>
-                        </div>
-                        <input type="number" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock" (change)="handleInputChange(i, $event)">
-                        <div class="input-group-prepend">
-                          <button type="button" class="btn btn-outline-secondary" class="imagen"  (click)="incrementValue(i)">+</button>
-                        </div>
-                      </div>
-                    </td>
-                    <td>{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
-                    <td>
-                        <button
-                          class="btn btn-outline-danger btn-sm"
-                        >
-                          <img class="imagen" (click)="onDeleteSelectedProduct(i)" src="./assets/img/eliminar.png" alt="" />
-                        </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-
-
-        <div class="col-lg-6  pt-4 " style="background-color: whitesmoke;border-radius:10px">
-            <div class="car ms-5">
-                <div class="px-5 ">
-                    <div class="h4 pb-2 mb-4 mt-2 text-center text-danger border-bottom border-danger border-top  border-black">
-                        Resumen de Compra
-
-                     </div>
-                </div>
-                <div class="card-body  mt-5">
-                   <table class="mx-5 tabla w-100">
-                    <tbody>
-                      <div class="px-3 mb-4">
-                        <tr *ngFor="let Prueba of selectedProduct" >
-                            <td class="text-subn">{{Prueba.name_p}}:</td>
-                            <td class="align-text-bottom">{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
-                        </tr>
-                      </div>
-                    </tbody>
-                    <tbody class="px-5">
-                      <hr class="">
-                      <div class="px-3 mb-4">
-                        <tr class="" >
-                          <td style="padding-right: 130px;">TOTAL:</td>
-                          <td class="align-text-bottom">{{(val).toFixed(2)}}</td>
-                        </tr>
-                      </div>
-                        <div class="">
-                          <input class="form-check-input mb-1 p-0" type="checkbox" value="" aria-label="Checkbox for following text input" [(ngModel)]="aceptarterminos">
-                          <label for="" class="mx-2 mt-0">Aceptar los terminos y Condiciones</label>
-                        </div>
-                        <a  (click)="realizarcompra()" class="btn btn-danger w-75 mt-5 mb-3">Realizar Compra</a>
-                        <a  routerLink="/productos" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
+    <div *ngIf="variableMostrar">
+        <div class="row">
+            <div class="col-lg-6 " style="border-radius:10px ;" >
+                <table class="table rounded-lg rounded border border-secondary mt-3" style="background-color: whitesmoke;border-radius:10px" >
+                    <thead class="text-center w-100"  >
+                      <tr class="">
+                        <th class="w-25 text-danger">Imagen</th>
+                        <th scope="col " class="text-danger">Nombre</th>
+                        <th scope="col " class="text-danger">Precio</th>
+                        <th scope="col "class="text-danger">Cantidad</th>
+                        <th scope="col "class="text-danger">Total</th>
+                        <th scope="col "class="text-danger"></th>
+                        <th scope="col "class="text-danger"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center align-middle">
+                      <tr *ngFor="let Prueba of selectedProduct; let i = index ; " >
+                        <td><img class="img-fluid w-100" src="{{Prueba.image_using}}" alt=""></td>
+                        <td class="pb-2">{{Prueba.name_p}}</td>
+                        <td class="pb-2">{{Prueba.price}}</td>
+                        <td class="w-25">
+                          <div class="input-group">
+                            <div class="input-group-append">
+                              <button type="button" class="btn btn-outline-secondary"class="imagen" (click)="decrementValue(i)">-</button>
+                            </div>
+                            <input type="number" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock" (change)="handleInputChange(i, $event)">
+                            <div class="input-group-prepend">
+                              <button type="button" class="btn btn-outline-secondary" class="imagen"  (click)="incrementValue(i)">+</button>
+                            </div>
+                          </div>
+                        </td>
+                        <td>{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
+                        <td>
+                            <button
+                              class="btn btn-outline-danger btn-sm"
+                            >
+                              <img class="imagen" (click)="onDeleteSelectedProduct(i)" src="./assets/img/eliminar.png" alt="" />
+                            </button>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
             </div>
+
+
+            <div class="col-lg-6  pt-4 " style="background-color: whitesmoke;border-radius:10px">
+                <div class="car ms-5">
+                    <div class="px-5 ">
+                        <div class="h4 pb-2 mb-4 mt-2 text-center text-danger border-bottom border-danger border-top  border-black">
+                            Resumen de Compra
+
+                        </div>
+                    </div>
+                    <div class="card-body  mt-5">
+                      <table class="mx-5 tabla w-100">
+                        <tbody>
+                          <div class="px-3 mb-4">
+                            <tr *ngFor="let Prueba of selectedProduct" >
+                                <td class="text-subn">{{Prueba.name_p}}:</td>
+                                <td class="align-text-bottom">{{(Prueba.price * Prueba.stock).toFixed(2)}}</td>
+                            </tr>
+                          </div>
+                        </tbody>
+                        <tbody class="px-5">
+                          <hr class="">
+                          <div class="px-3 mb-4">
+                            <tr class="" >
+                              <td style="padding-right: 130px;">TOTAL:</td>
+                              <td class="align-text-bottom">{{(val).toFixed(2)}}</td>
+                            </tr>
+                          </div>
+                            <div class="">
+                              <input class="form-check-input mb-1 p-0" type="checkbox" value="" aria-label="Checkbox for following text input" [(ngModel)]="aceptarterminos">
+                              <label for="" class="mx-2 mt-0">Aceptar los terminos y Condiciones</label>
+                            </div>
+                            <a  (click)="realizarcompra()" class="btn btn-danger w-75 mt-5 mb-3">Realizar Compra</a>
+                            <a  routerLink="/productos" class="btn btn-light w-75  mb-5 text-black">Seguir Comprando</a>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
+  </div>
+    <div *ngIf="!variableMostrar">
+      <div class="w-100 bg-white text-center">
+        <h3>No se encontraron productos, compre productos para mostrar el carrito</h3>
+        <img class="w-50" src="../../../assets/img/carritofachero.png" alt="">
+      </div>
+        
+    </div>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+import { TemplateBindingParseResult } from '@angular/compiler';
 import { ChangeDetectorRef, Component, OnChanges, SimpleChanges } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { IProductcar } from 'src/app/Interfaces/IProductsCar';
@@ -27,6 +28,7 @@ export class CarritoComponent {
   val: number = 0
   num: number = 0
   variable: string | any
+  variableMostrar: Boolean | any;
 
   constructor(
     private sharedDataService: SharedDataServiceService,
@@ -113,9 +115,15 @@ export class CarritoComponent {
 
   valores(){
     const selectedProduct2 = localStorage.getItem("selectedProduct2");
-    if (selectedProduct2 !== null) {
-    this.variable = JSON.parse(selectedProduct2);
-  }
+      if (selectedProduct2 !== null) {
+        this.variableMostrar = true
+        console.log("Si hay datos",this.variableMostrar)
+      
+        this.variable = JSON.parse(selectedProduct2);
+      }else{
+        console.log("No hay datos")
+        this.variableMostrar = false
+      }
   }
 
   realizarcompra(){
