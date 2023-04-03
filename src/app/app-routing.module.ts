@@ -22,6 +22,8 @@ import { CollecFallComponent } from './components/m-collec-productos/collec-fall
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
 import { LoginComponent } from './components/m-usuario/login/login.component';
 import { OrderComponent } from './components/order/order.component';
+import { ReclamosComponent } from './components/reclamos/reclamos.component';
+
 
 
 const routes: Routes = [
@@ -45,6 +47,7 @@ const routes: Routes = [
   {path: 'productos/otoño', component: CollecFallComponent},
   {path: "registro",component: UserRegistroComponent},
   {path: 'orden', component: OrderComponent },
+  {path: 'reclamos',component: ReclamosComponent}
 
 
 

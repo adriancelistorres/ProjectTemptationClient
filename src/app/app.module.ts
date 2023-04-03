@@ -31,6 +31,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserRegistroComponent } from './components/m-usuario/user-registro/user-registro.component';
 import { LoginComponent } from './components/m-usuario/login/login.component';
 import { OrderComponent } from './components/order/order.component';
+import {ReclamosComponent} from './components/reclamos/reclamos.component';
+import { Pipev2Pipe } from './shared/pipev2.pipe';
+import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component';
+import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
+
 
 
 @NgModule({
@@ -58,6 +63,10 @@ import { OrderComponent } from './components/order/order.component';
     UserRegistroComponent,
     LoginComponent,
     OrderComponent,
+    ReclamosComponent,
+    Pipev2Pipe,
+    DetReclamosComponent,
+    AddReclamosComponent
   ],
   imports: [
     BrowserModule,

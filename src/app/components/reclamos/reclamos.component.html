@@ -1,1 +1,80 @@
-<p>reclamos works!</p>
+<app-det-reclamos></app-det-reclamos>
+<div class="body" style="padding: 130px">
+  <div
+    style="
+      background-color: rgba(255, 255, 255, 0.226);
+      padding: 0px;
+      margin: 0px;
+      border-radius: 10px;
+    "
+  >
+    <div style="text-align: center">
+      <h5 class="logito">Reclamos</h5>
+    </div>
+    <div class="container">
+      <div class="search-name pt-3 pb-3">
+        <input
+          class="form-control"
+          type="text"
+          name="search"
+          autocomplete="on"
+          placeholder=" Buscar"
+          [(ngModel)]="searchText"
+        />
+      </div>
+
+      <div class="agregar">
+        <button
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          class="btn btn-outline-success"
+        >
+          <img class="imagen" src="./assets/img/agregar.png" alt="" />
+        </button>
+      </div>
+      <table class="table color">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">id Reclamo</th>
+            <th scope="col" class="text-center">Id Orden</th>
+            <th scope="col" class="text-center">Asunto</th>
+            <th scope="col" class="text-center">Estado</th>
+            <th class="text-center" style="width: 10%" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listreclamos | pipev2 : searchText">
+            <td class="p-1 text-center">
+              0000{{ item.idclaims }}
+            </td>
+            <td class="p-1 text-center">
+              0000{{ item.idorder }}
+            </td>
+            <td class="p-1 text-center">
+              {{ item.subject }}
+            </td>
+            <td class="p-1 text-center">
+              <span *ngIf="item.state === 1">En Espera</span>
+              <span *ngIf="item.state === 2">Aprobado</span>
+              <span *ngIf="item.state === 0">Rechazado</span>
+            </td>
+            <td class="p-1 text-center">
+              <button
+                data-bs-target="modal"
+                class="btn btn-outline-warning btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop4"
+                (click)="GetOneClaim2(item.idclaims)"
+              >
+                <a> <img src="./assets/img/lupa.png" class="imagen" /></a>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+    <br />
+    <br />
+  </div>
+</div>
