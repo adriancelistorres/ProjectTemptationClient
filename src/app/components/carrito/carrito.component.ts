@@ -27,7 +27,7 @@ export class CarritoComponent {
   val: number = 0
   num: number = 0
   variable: string | any
- 
+
   constructor(
     private sharedDataService: SharedDataServiceService,
      private _toastr: ToastrService){}
@@ -38,7 +38,7 @@ export class CarritoComponent {
     this.valores()
     this.selectedProduct = this.variable
     console.log("VARIABLE LOCAl",this.variable)
-    
+
     console.log("Select Product de CARRTIO",this.variable)
     //this.total  = this.selectedProduct.reduce((acc, obj) =>acc + (obj.price * obj.stock), 0);
     console.log("TOTAL:",this.total)
@@ -47,14 +47,14 @@ export class CarritoComponent {
 
   onDeleteSelectedProduct(i: number) {
     console.log("Elemento Eliminado:",i)
-    this.selectedProduct.splice(i, 1); 
+    this.selectedProduct.splice(i, 1);
     localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
     this.totales()
   }
 
 
   incrementValue(index: number) {
-   
+
     this.selectedProduct[index].stock++;
     this.selectProduct2 = this.selectedProduct
     this.totales()
@@ -73,7 +73,7 @@ export class CarritoComponent {
       this.selectProduct2 = this.selectedProduct
       localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
     } else {
-      this.selectedProduct[index].stock--; 
+      this.selectedProduct[index].stock--;
       this.selectProduct2 = this.selectedProduct
 
       this.totales()
@@ -121,7 +121,7 @@ export class CarritoComponent {
   realizarcompra(){
     if(this.aceptarterminos){
       console.log(this.aceptarterminos)
-      window.location.href = "/menu"
+      window.location.href = "/orden"
     }else{
       this._toastr.warning("Debe de Seleccionar los terminos y condiciones")
     }
