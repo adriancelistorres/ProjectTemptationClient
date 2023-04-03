@@ -33,7 +33,8 @@ import { UserRegistroComponent } from './components/m-usuario/user-registro/user
 import { LoginComponent } from './components/m-usuario/login/login.component';
 import {ReclamosComponent} from './components/reclamos/reclamos.component';
 import { Pipev2Pipe } from './shared/pipev2.pipe';
-import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component'
+import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component';
+import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.com
     LoginComponent,
     ReclamosComponent,
     Pipev2Pipe,
-    DetReclamosComponent
+    DetReclamosComponent,
+    AddReclamosComponent
   ],
   imports: [
     BrowserModule,
