@@ -75,6 +75,9 @@ export class DetProductoComponent {
 
         // agregar el producto al carrito
       } else {
+        const url = this.router.url;
+        localStorage.setItem('url',url);
+        console.log('URL', url);
         this.router.navigate(['/login']);
 
         this._toastr.error('debe logearse antes');

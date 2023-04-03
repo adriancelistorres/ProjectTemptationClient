@@ -94,8 +94,11 @@ export class LoginComponent {
           this.loading = false;
         },
       });
+       const url :any = localStorage.getItem('url');
+       const routeo = `${url.replace(/"/g, '')}`;
+       console.log("url",url)
 
-      this.router.navigate(['/productos']);
+      this.router.navigate([routeo]);
 
 
     }, 1000);
