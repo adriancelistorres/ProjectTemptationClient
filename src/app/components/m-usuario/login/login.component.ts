@@ -19,6 +19,7 @@ export class LoginComponent {
   password: string = '';
   loading: boolean = false;
    rol:number|any;
+   person: number|any;
 
   constructor(
     private toastr: ToastrService,
@@ -68,23 +69,26 @@ export class LoginComponent {
           const lastname = decodedToken.lastname;
           const username = decodedToken.username;
           const dni = decodedToken.dni;
+          const idperson = decodedToken.idperson;
 
           // console.log('rol:', role);
           this.rol = role;
           localStorage.setItem('rollogin', this.rol);
+          localStorage.setItem('idperson', idperson);
           localStorage.setItem('username', username);
           localStorage.setItem('name', name);
           localStorage.setItem('lastname', lastname);
           localStorage.setItem('dni', dni);
-          let idAlmaceneado = localStorage.getItem('idperson');
+          // let idAlmaceneado = localStorage.getItem('idperson');
 
+          let idpersonAlmacenado = localStorage.getItem('idperson')
           let rolAlmacenado = localStorage.getItem('rollogin');
           let nameAlmacenado = localStorage.getItem('rollogin');
           let lastnameAlmacenado = localStorage.getItem('rollogin');
           let usernameAlmacenado = localStorage.getItem('rollogin');
           let dniAlmacenado = localStorage.getItem('rollogin');
 
-          console.log('LOGloginPERSON',idAlmaceneado);
+          console.log('LOGloginPERSON',idpersonAlmacenado);
           console.log('LOGloginrol',rolAlmacenado);
           console.log('El rol guardado en la clase es:', rolAlmacenado); // mostramos el valor del rol en la consola
 

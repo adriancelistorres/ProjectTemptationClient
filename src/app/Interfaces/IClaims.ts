@@ -1,5 +1,5 @@
 export interface IClaims{
-    idclaims: number| any,
+    idclaims?: number| any,
     idorder: number| any,
     idperson: number| any,
     subject: string| any,

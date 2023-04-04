@@ -14,6 +14,7 @@ export class ReclamosComponent {
 
   listreclamos: IClaims [] = [];
   searchText:any;
+  idperson:any;
 
   constructor(
     private _claimsService: ClaimService,
@@ -21,6 +22,7 @@ export class ReclamosComponent {
     private _errorService: ErrorService
     )
   {
+    this.idperson = localStorage.getItem('idperson');
     this._claimsService.RefreshRequired.subscribe(result =>{
       this.getOnlyClaimPerson();
     })
@@ -38,9 +40,10 @@ export class ReclamosComponent {
   }                                     
 
   getOnlyClaimPerson() {
+    console.log('LOG LOGIN',this.idperson);
     this._claimsService.getClaims().subscribe((data: IClaims[]) => 
     {
-      this.listreclamos = data.filter(op=>op.idperson == 6);
+      this.listreclamos = data.filter(op=>op.idperson == this.idperson);
     });
   }
 }

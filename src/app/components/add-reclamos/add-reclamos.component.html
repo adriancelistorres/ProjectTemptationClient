@@ -1,1 +1,104 @@
-<p>add-reclamos works!</p>
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-tittle" id="staticBackdropLabel">Agregar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formClaim" (ngSubmit)="addClaim()">
+          <div class="row">
+            
+            <div class="mb-3 col-md-6">
+              <label class="form-label">IdOrden</label>
+              <select
+                formControlName="idorder"
+                
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption"
+              >
+                <option
+                  *ngFor="let item of listOrder"
+                  [value]="item.idorder"
+                >
+                  0000{{ item.idorder }}
+                </option>
+              </select>
+              <span *ngIf="
+              formClaim.get('idorder')?.hasError('required') &&
+              formClaim.get('idorder')?.touched"
+              >
+              <strong style="color:orangered" >El campo IdOrden es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Asunto</label>
+                <input
+                  formControlName="subject"
+                  class="form-control"
+                  pattern="[A-Za-z ]{1,40}"
+                  id="exampleInputPassword1"
+                />
+                <span *ngIf="formClaim.get('subject')?.hasError('required') && formClaim.get('subject')?.touched">
+                  <strong style="color:orangered">El campo Nombre es requerido</strong>
+              </span>
+              <span *ngIf="formClaim.get('subject')?.hasError('pattern')">
+                  <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+              </span>
+              </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Descripcion</label>
+              <input
+                formControlName="descripcion"
+                class="form-control"
+                pattern="[A-Za-z ]{1,50}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formClaim.get('descripcion')?.hasError('required') && formClaim.get('descripcion')?.touched">
+                <strong style="color:orangered">El campo Descripcion es requerido</strong>
+            </span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Fecha de la Compra</label>
+                <input
+                  class="form-select"
+                  [value]="fechaActual"
+                  readonly
+                />
+            </div>
+            <div class="modal-footer border-0 pt-4">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                cerrar
+              </button>
+              <button
+              [disabled]="formClaim.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              agregar
+            </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

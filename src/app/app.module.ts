@@ -35,6 +35,7 @@ import {ReclamosComponent} from './components/reclamos/reclamos.component';
 import { Pipev2Pipe } from './shared/pipev2.pipe';
 import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component';
 import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
+import { DatePipe } from '@angular/common';
 
 
 
@@ -78,6 +79,9 @@ import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.com
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}),
       ReactiveFormsModule
+  ],
+  providers: [
+    DatePipe 
   ],
   
   bootstrap: [AppComponent]
