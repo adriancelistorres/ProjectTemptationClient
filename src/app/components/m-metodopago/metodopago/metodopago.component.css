@@ -1,0 +1,47 @@
+.body {
+    background-image: url('./../../../../assets/img/menu-img/fondos/fondo9.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0;
+    margin: 0;
+    /* height: 100vh; */
+    background-attachment: fixed;
+    padding: 130px;
+  
+  
+  }
+
+.formulario{
+width: 50%;
+background-color: white;
+}
+
+button{
+font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: #fb774b;
+    color: white;
+    padding: 13px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    border-radius: 5px;
+    width: 150px;
+    height: 45px;
+    width: 80%;
+    
+}
+.uledit{
+    padding-left: 50px;
+    font-weight: 400;
+    }
+.cuerpezito{
+    width:  100%;
+}
+.imagen{
+    width: 40%;
+    height: 400px;
+}

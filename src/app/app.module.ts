@@ -34,7 +34,8 @@ import { OrderComponent } from './components/order/order.component';
 import {ReclamosComponent} from './components/reclamos/reclamos.component';
 import { Pipev2Pipe } from './shared/pipev2.pipe';
 import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component';
-import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
+import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component';
+import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component'
 
 
 
@@ -66,7 +67,8 @@ import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.com
     ReclamosComponent,
     Pipev2Pipe,
     DetReclamosComponent,
-    AddReclamosComponent
+    AddReclamosComponent,
+    MetodopagoComponent
   ],
   imports: [
     BrowserModule,

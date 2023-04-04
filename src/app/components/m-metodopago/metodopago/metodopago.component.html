@@ -1,0 +1,158 @@
+<div class="body">
+    <div class="formulario container ">
+        <div class="header border border-black p-2 ">
+            <h2 class="text-center">Metodos de Pago</h2>
+        </div>
+        <div class="body-form pb-3">
+            <h5 class=" mb-3">Seleccione su metodo de Pago:</h5>
+            <div class="dropdown text-center">
+                <button class="btn btn-dark dropdown-toggle botonsito" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                 Metodo de Pago
+                </button>
+                <ul class="dropdown-menu uledit" aria-labelledby="dropdownMenuButton1" style="width: 355px;">
+                  <div class="form-check" *ngFor="let pay of listPayMethod">
+                    <input type="checkbox" class="form-check-input" [value]="pay.idpay" (change)="handleOptionChange($event)">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        {{pay.name_pay}}
+                    </label>
+                  </div>
+                </ul>
+            </div>
+            <div class="mt-2 ">
+                <div *ngIf="this.idpay === 0">
+                    <div class="my-5 py-5 cuerpezito text-center">
+                        <img class="w-50" src="../../../../assets/img/icont2.png" alt="imagen">
+                    </div>
+                                
+                    <div class="footer text-center pt-5 py-3">
+                        <button class="btn btn-dark botonsito bg-success" (click)="realizarcompra()" >Guardar</button>
+                    </div>
+                </div>
+                <div *ngIf="this.idpay == 1">
+                    <div class="my-5 py-5 cuerpezito text-center">
+                        <p> Seleccione el Boton de Paypal</p>
+                        <br>
+                        <a href="" class="btn btn-primary text-white w-75">PayPay</a>
+                    </div>
+                    
+                    <div class="footer text-center pt-5 py-3">
+                        <button class="btn btn-dark botonsito bg-success" (click)="realizarcompra()" >Guardar</button>
+                    </div>
+                </div>
+                <div  *ngIf="this.idpay == 2">
+                    <div class="cuerpezito mt-4">
+                        <h5> Ingrese los datos de su tarjeta</h5>
+                        <br>
+                        <div class="row  px-3 ">
+                            <form [formGroup]="formPay">
+                            <div class="col-lg-12 mb-2">
+                                <input type="text" class="form-control" formControlName="numTarjeta" placeholder="Numero de Tarjeta">
+                                <span *ngIf="formPay.get('numTarjeta')?.hasError('required') && formPay.get('numTarjeta')?.touched">
+                                    <strong style="color:rgb(255, 0, 0)">El campo Numero de Tarjeta es requerido</strong>
+                                </span>
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <select class="form-control" formControlName="MesExpiracion">
+                                    <option value="" disabled selected hidden>Mes de Expiracion                ></option>
+                                    <option value="opcion1">Enero</option>
+                                    <option value="opcion2">Febrero</option>
+                                    <option value="opcion3">Marzo</option>
+                                    <option value="opcion3">Abrik</option>
+                                    <option value="opcion3">Mayo</option>
+                                    <option value="opcion3">Junio</option>
+                                    <option value="opcion3">Julio</option>
+                                    <option value="opcion3">Agosto</option>
+                                    <option value="opcion3">Septiembre</option>
+                                    <option value="opcion3">Octubre</option>
+                                    <option value="opcion3">Noviembre</option>
+                                    <option value="opcion3">Diciembre</option>
+                                </select>
+                                <span *ngIf="formPay.get('MesExpiracion')?.hasError('required') && formPay.get('MesExpiracion')?.touched">
+                                    <strong style="color:rgb(255, 0, 0)">El campo Mes de Expiracion es requerido</strong>
+                                </span>
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <select class="form-control" formControlName="AñoExpiracion">
+                                    <option value="" disabled selected hidden>Año de Expiracion             ></option>
+                                    <option value="opcion1">2023</option>
+                                    <option value="opcion2">2024</option>
+                                    <option value="opcion3">2025</option>
+                                    <option value="opcion3">2026</option>
+                                </select>
+                                <span *ngIf="formPay.get('AñoExpiracion')?.hasError('required') && formPay.get('AñoExpiracion')?.touched">
+                                    <strong style="color:orangered">El campo Año Expiracion es requerido</strong>
+                                </span>
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <input type="text" class="form-control" placeholder="Codigo de Seguridad"  formControlName="ClaveTarjeta">
+                                <span *ngIf="formPay.get('ClaveTarjeta')?.hasError('required') && formPay.get('ClaveTarjeta')?.touched">
+                                    <strong style="color:orangered">El campo Codigo de Seguridad es requerido</strong>
+                                </span>
+                            </div>
+                            <div class="footer text-center pt-5 py-3">
+                                <button class="btn btn-dark botonsito bg-success" (click)="validacionidpay2()" >Guardar</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="this.idpay == 3">
+                    <div class="cuerpezito text-center mt-4">
+                        <form [formGroup]="formPay">
+                            <h5> Escanee este QR</h5>
+                            <img src="../../../../assets/img/Yapepng.png" alt="yape" class="imagen">
+                            <div class="text-center mx-5 mt-4">
+                                <p class="text-start">Ingrese comprobante de Pago</p>
+                                <input class="form-control"  type="file" id="formFile" formControlName="ComprobanteYape">
+                                <span *ngIf="formPay.get('ComprobanteYape')?.hasError('required') && formPay.get('ComprobanteYape')?.touched">
+                                    <strong style="color:orangered">El campo Codigo de Seguridad es requerido</strong>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="footer text-center pt-5 py-3">
+                        <button class="btn btn-dark botonsito bg-success" (click)="validacionidpay3()" >Guardar</button>
+                    </div>
+                </div>
+                <div *ngIf="this.idpay == 4">
+                    <div class="cuerpezito text-center mt-4">
+                        <form [formGroup]="formPay">
+                            <h5> Escanee este QR</h5>
+                            <img src="../../../../assets/img/PLIM.png" alt="yape" class="imagen">
+                            
+                            <div class="mx-5 mt-4">
+                                <p class="text-start">Ingrese comprobante de Pago</p>
+                                <input class="form-control text-center"  type="file" id="formFile" formControlName="ComprobantePlin">
+                                <span *ngIf="formPay.get('ComprobantePlin')?.hasError('required') && formPay.get('ComprobantePlin')?.touched">
+                                    <strong style="color:orangered">El campo Codigo de Seguridad es requerido</strong>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="footer text-center pt-5 py-3">
+                        <button class="btn btn-dark botonsito bg-success" (click)="validacionidpay4()" >Guardar</button>
+                    </div>
+                </div>
+                <div *ngIf="this.idpay == 5">
+                    <div class="cuerpezito text-center mt-4">
+                        <form [formGroup]="formPay">
+                            <h5> Escanee este QR</h5>
+                            <img src="../../../../assets/img/TUNKI.png" alt="yape" class="imagen">
+                            
+                            <div class="mx-5 mt-4">
+                                <p class="text-start">Ingrese comprobante de Pago</p>
+                                <input class="form-control text-center"  type="file" id="formFile" formControlName="ComprobanteTunki">
+                                <span *ngIf="formPay.get('ComprobanteTunki')?.hasError('required') && formPay.get('ComprobanteTunki')?.touched">
+                                    <strong style="color:orangered">El campo Codigo de Seguridad es requerido</strong>
+                                </span>
+                            </div>
+                         </form>
+                    </div>
+                    <div class="footer text-center pt-5 py-3">
+                        <button class="btn btn-dark botonsito bg-success" (click)="validacionidpay5()" >Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
