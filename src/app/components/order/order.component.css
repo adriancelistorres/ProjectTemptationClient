@@ -11,3 +11,23 @@
   
   
   }
+  .contenedor{
+    width: 60%;
+  }
+
+  .imagen{
+    width: 110px;
+    height: 150px;
+  }
+
+  /* .containerTable {
+     display: flex;
+    justify-content: center;
+    align-items: center; 
+  } */
+
+  .content {
+    text-align: center;
+    width: 80%;
+    margin-left: 50px;
+  }

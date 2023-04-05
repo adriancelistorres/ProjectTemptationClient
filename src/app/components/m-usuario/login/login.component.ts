@@ -69,11 +69,12 @@ export class LoginComponent {
           const lastname = decodedToken.lastname;
           const username = decodedToken.username;
           const dni = decodedToken.dni;
+          const idperson = decodedToken.idperson;
 
           // console.log('rol:', role);
           this.rol = role;
           localStorage.setItem('rollogin', this.rol);
-          localStorage.setItem('idperson', decodedToken.idperson);
+          localStorage.setItem('idperson', idperson);
           localStorage.setItem('username', username);
           localStorage.setItem('name', name);
           localStorage.setItem('lastname', lastname);
@@ -97,12 +98,7 @@ export class LoginComponent {
         },
       });
        const url :any = localStorage.getItem('url');
-       if(url == ""){
-        this.routeo = `${url.replace(/"/g, '')}`;
-        
-       }else{
-        this.routeo  = `/menu`;
-       }
+       this.routeo = `${url.replace(/"/g, '')}`;
        console.log("url",url)
        this.router.navigate([this.routeo ]);
       
