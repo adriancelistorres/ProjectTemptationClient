@@ -23,6 +23,7 @@ import { UserRegistroComponent } from './components/m-usuario/user-registro/user
 import { LoginComponent } from './components/m-usuario/login/login.component';
 import { OrderComponent } from './components/order/order.component';
 import { ReclamosComponent } from './components/reclamos/reclamos.component';
+import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component';
 
 
 
@@ -47,7 +48,8 @@ const routes: Routes = [
   {path: 'productos/otoño', component: CollecFallComponent},
   {path: "registro",component: UserRegistroComponent},
   {path: 'orden', component: OrderComponent },
-  {path: 'reclamos',component: ReclamosComponent}
+  {path: 'reclamos',component: ReclamosComponent},
+  {path: 'metodopago',component:MetodopagoComponent}
 
 
 

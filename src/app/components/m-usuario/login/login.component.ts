@@ -18,6 +18,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   loading: boolean = false;
+  routeo : any
    rol:number|any;
    person: number|any;
 
@@ -99,10 +100,10 @@ export class LoginComponent {
         },
       });
        const url :any = localStorage.getItem('url');
-       const routeo = `${url.replace(/"/g, '')}`;
+       this.routeo = `${url.replace(/"/g, '')}`;
        console.log("url",url)
-
-      this.router.navigate([routeo]);
+       this.router.navigate([this.routeo ]);
+      
 
 
     }, 1000);

@@ -36,6 +36,8 @@ import { Pipev2Pipe } from './shared/pipev2.pipe';
 import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component';
 import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
 import { DatePipe } from '@angular/common';
+import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component'
+
 
 
 
@@ -67,7 +69,8 @@ import { DatePipe } from '@angular/common';
     ReclamosComponent,
     Pipev2Pipe,
     DetReclamosComponent,
-    AddReclamosComponent
+    AddReclamosComponent,
+    MetodopagoComponent
   ],
   imports: [
     BrowserModule,
