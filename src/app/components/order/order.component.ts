@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { IProductcar } from 'src/app/Interfaces/IProductsCar';
+
 
 @Component({
   selector: 'app-order',
@@ -15,6 +18,8 @@ export class OrderComponent implements OnInit {
     selectProduct : IProductcar[] = [];
     totalParcial : number = 0;
     totalGeneral: number = 0;
+
+
     
     ngOnInit(): void {
       this.Datos()
@@ -51,5 +56,7 @@ export class OrderComponent implements OnInit {
       let totalGeneral = this.totalParcial * 0.18
       this.totalGeneral = this.totalParcial + totalGeneral
     }
+
+
 
 }

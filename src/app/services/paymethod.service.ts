@@ -23,27 +23,20 @@ export class PaymethodService {
     private _tokenservice: TokenInterceptorService
   ) { 
     this.myAppUrl = environment.endpoint;
-    this.myApi = 'paymentmethods';
-    this.myApi2 = 'paymentmethod'
+    this.myApi = 'paymentmethods2';
+    this.myApi2 = 'paymentmethod2'
   }
 
   getpayMethod(): Observable<IPaymentMethod[]>{
     return this.http.get<IPaymentMethod[]>(
       `${this.myAppUrl}${this.myApi}`,
-      this._tokenservice.interceptor()
-    )
-  }
-  deletepayMethod(id: number):Observable<void>{
-    return this.http.delete<void>(
-      `${this.myAppUrl}${this.myApi2}/${id}`,
-      this._tokenservice.interceptor()
+
     )
   }
 
   addpayMethod(paymethod: IPaymentMethod): Observable<void>{
     return this.http.post<void>(
       `${this.myAppUrl}${this.myApi2}`,paymethod,
-      this._tokenservice.interceptor()
     ).pipe(
       tap(()=>{
         this._refreshRequired.next();
@@ -51,21 +44,10 @@ export class PaymethodService {
     )
   }
 
-  updatepayMethod(id:number,paymethod: IPaymentMethod ): Observable<void>{
-    return this.http.put<void>(
-      `${this.myAppUrl}${this.myApi2}/${id}`,
-      paymethod, this._tokenservice.interceptor()
-    ).pipe(
-      tap(() =>{
-        this._refreshRequired.next();
-      })
-    )
-  }
 
   getOnepayMethod(id: number): Observable<IPaymentMethod>{
     return this.http.get<IPaymentMethod>(
       `${this.myAppUrl}${this.myApi2}/${id}`,
-      this._tokenservice.interceptor()
     ).pipe(tap(()=>{
       this._refreshRequired.next();
     }));

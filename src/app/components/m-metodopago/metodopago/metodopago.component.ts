@@ -1,7 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { IOrder } from 'src/app/Interfaces/IOrder';
 import { IPaymentMethod } from 'src/app/Interfaces/IPaymentMethod';
+import { OrderService } from 'src/app/services/order.service';
 import { PaymethodService } from 'src/app/services/paymethod.service';
 
 @Component({
@@ -16,11 +19,13 @@ export class MetodopagoComponent implements OnInit {
   isChecked: boolean  = true;
   isCheckedVal: boolean  = false;
   formPay: FormGroup;
+  idperson = localStorage.getItem("idperson");
 
   constructor(
     private _paymethodService: PaymethodService,
     private _toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _orderService: OrderService,
   ) { 
     this.formPay = this.fb.group({
       numTarjeta: ['',Validators.required],
@@ -33,7 +38,9 @@ export class MetodopagoComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit(
+    
+  ): void {
     this.GetPayMethod();
 
   }
@@ -63,7 +70,7 @@ export class MetodopagoComponent implements OnInit {
 
 
   validacionidpay2(){
-
+    
     const numeroTarjeta = this.formPay.get('numTarjeta')?.value;
     const mesexpiracion = this.formPay.get('MesExpiracion')?.value;
     const añoexpiracion = this.formPay.get('AñoExpiracion')?.value;
@@ -75,7 +82,9 @@ export class MetodopagoComponent implements OnInit {
     }else{
       console.log("Realizado correctamente")
       this.isCheckedVal = true;
+      this.agregarOrder()
       this.realizarcompra()
+
     }
 
   }
@@ -87,6 +96,7 @@ export class MetodopagoComponent implements OnInit {
     }else{
       console.log("Realizado correctamente")
       this.isCheckedVal = true;
+      this.agregarOrder()
       this.realizarcompra()
     }
   }
@@ -98,6 +108,7 @@ export class MetodopagoComponent implements OnInit {
     }else{
       console.log("Realizado correctamente")
       this.isCheckedVal = true;
+      this.agregarOrder()
       this.realizarcompra()
     }
   }
@@ -109,6 +120,7 @@ export class MetodopagoComponent implements OnInit {
     }else{
       console.log("Realizado correctamente")
       this.isCheckedVal = true;
+      this.agregarOrder()
       this.realizarcompra()
     }
 
@@ -125,4 +137,23 @@ export class MetodopagoComponent implements OnInit {
   }
 
 
+  agregarOrder(){
+    const fecha = new Date().toLocaleDateString()
+    const fechaOrder = `${fecha.substring(4,10)}-${fecha.substring(2,3)}-${fecha.substring(0,1)}}`
+    localStorage.setItem("fechaOrder",fechaOrder)
+    console.log(fechaOrder);
+    const order: IOrder = {
+      idperson: this.idperson,
+      idpay : parseInt(this.idpay),
+      dateorder : fechaOrder,
+      state : 1
+    };
+    this._orderService.addOrder(order).subscribe({next:() =>{
+      this._toastr.success("Se agrego correctamente");
+    },
+    error: (e: HttpErrorResponse)=>{
+      this._toastr.error('Hubo un error en el registro')
+    }
+  })
+  }
 }
