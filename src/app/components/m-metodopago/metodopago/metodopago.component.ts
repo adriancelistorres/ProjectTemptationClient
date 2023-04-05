@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IOrder } from 'src/app/Interfaces/IOrder';
 import { IPaymentMethod } from 'src/app/Interfaces/IPaymentMethod';
@@ -26,8 +27,11 @@ export class MetodopagoComponent implements OnInit {
     private _toastr: ToastrService,
     private fb: FormBuilder,
     private _orderService: OrderService,
+    private router: Router,
   ) { 
     this.formPay = this.fb.group({
+      cuantaPaypal: ['',Validators.required],
+      contraseñaPaypal: ['',Validators.required],
       numTarjeta: ['',Validators.required],
       ClaveTarjeta: ['',Validators.required],
       MesExpiracion: ['',Validators.required],
@@ -66,7 +70,26 @@ export class MetodopagoComponent implements OnInit {
     }
     console.log(this.idpay);
   }
+  validacionidpay1(){
+    
+    // const cuantaPaypal = this.formPay.get('cuantaPaypal')?.value;
+    // const contraseñaPaypal = this.formPay.get('contraseñaPaypal')?.value;
 
+    // if(cuantaPaypal == "" || contraseñaPaypal == "" ){
+    //   this._toastr.warning("Complete los campos requeridos")
+    //   console.log("Realizado Incorrectamente")
+    // }else{
+    //   console.log("Realizado correctamente")
+    //   this.isCheckedVal = true;
+    //   this.agregarOrder()
+    //   this.realizarcompra()
+
+    // }
+    this.isCheckedVal = true;
+    this.agregarOrder()
+    this.realizarcompra()
+
+  }
 
 
   validacionidpay2(){
@@ -130,7 +153,9 @@ export class MetodopagoComponent implements OnInit {
     if(this.isCheckedVal){
       this.idpay = localStorage.setItem("idpay",this.idpay)
       console.log(this.isChecked)
-      window.location.href = "/orden"
+      this.router.navigate(['/orden']);
+//      window.location.href = "/orden"
+      
     }else{
       this._toastr.warning("No selecciono Correctamente un Metodo de Pago")
     }
@@ -140,8 +165,7 @@ export class MetodopagoComponent implements OnInit {
   agregarOrder(){
     const fecha = new Date().toLocaleDateString()
     const fechaOrder = `${fecha.substring(4,10)}-${fecha.substring(2,3)}-${fecha.substring(0,1)}}`
-    localStorage.setItem("fechaOrder",fechaOrder)
-    console.log(fechaOrder);
+
     const order: IOrder = {
       idperson: this.idperson,
       idpay : parseInt(this.idpay),

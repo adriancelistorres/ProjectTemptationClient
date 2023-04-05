@@ -29,15 +29,27 @@
                     </div>
                 </div>
                 <div *ngIf="this.idpay == 1">
-                    <div class="my-5 py-5 cuerpezito text-center">
-                        <p> Seleccione el Boton de Paypal</p>
+                    <div class="cuerpezito text-center">
+                        <form [formGroup]="formPay">
+                            <div class="mx-5">
+                                <!-- <h5 class="mb-3 mt-3"> Ingrese los datos de su cuenta</h5>
+                                <input type="text" class="form-control mt-4" placeholder="Ingrese Su Nombre de Cuenta" formControlName="cuantaPaypal" >
+                                <span *ngIf="formPay.get('cuantaPaypal')?.hasError('required') && formPay.get('cuantaPaypal')?.touched">
+                                    <strong style="color:rgb(255, 0, 0)">El campo Numero de Tarjeta es requerido</strong>
+                                </span>
+                                <input type="password" class="form-control mt-4" placeholder="Ingrese Su Contraseña" formControlName="contraseñaPaypal" >
+                                <span *ngIf="formPay.get('contraseñaPaypal')?.hasError('required') && formPay.get('contraseñaPaypal')?.touched">
+                                    <strong style="color:rgb(255, 0, 0)">El campo Numero de Tarjeta es requerido</strong>
+                                </span> -->
+                                <img src="../../../../assets/img/paypal.png" alt="" class="w-100 imagen">
+                            </div>
+                            <div class="footer text-center w-100 mt-5">
+                                <button class="btn btn-dark botonsito bg-success" (click)="validacionidpay1()" >Guardar</button>
+                            </div>
+                        </form>
                         <br>
-                        <a href="" class="btn btn-primary text-white w-75">PayPay</a>
                     </div>
                     
-                    <div class="footer text-center pt-5 py-3">
-                        <button class="btn btn-dark botonsito bg-success" (click)="realizarcompra()" >Guardar</button>
-                    </div>
                 </div>
                 <div  *ngIf="this.idpay == 2">
                     <div class="cuerpezito mt-4">

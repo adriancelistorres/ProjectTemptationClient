@@ -1,5 +1,6 @@
 import { TemplateBindingParseResult } from '@angular/compiler';
 import { ChangeDetectorRef, Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IProductcar } from 'src/app/Interfaces/IProductsCar';
 import { SharedDataServiceService } from 'src/app/services/shared-data-service.service';
@@ -33,7 +34,8 @@ export class CarritoComponent {
 
   constructor(
     private sharedDataService: SharedDataServiceService,
-     private _toastr: ToastrService){}
+     private _toastr: ToastrService,
+     private router: Router,){}
 
 
   ngOnInit(){
@@ -129,6 +131,7 @@ export class CarritoComponent {
   realizarcompra(){
     if(this.aceptarterminos){
       console.log(this.aceptarterminos)
+//      this.router.navigate(['/orden']);
       window.location.href = "/metodopago"
     }else{
       this._toastr.warning("Debe de Seleccionar los terminos y condiciones")
