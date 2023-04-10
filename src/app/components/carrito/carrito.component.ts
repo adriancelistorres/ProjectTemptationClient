@@ -52,11 +52,9 @@ export class CarritoComponent {
     this.validaciones()
     this.totales()
   }
-  getOneProduct(id: number) {
-    this._productoService.getOneProduct(id).subscribe((data: IProducts) => {
+  async getOneProduct(id: number) {
+    const data:IProducts|any=await this._productoService.getOneProduct(id).toPromise();
       this.stockMax = data.stock;
-      console.log(data);
-    });
   }
 
   onDeleteSelectedProduct(i: number) {
@@ -84,7 +82,7 @@ export class CarritoComponent {
       console.log("TOTAL EN LISTA", valor)
       localStorage.setItem("selectedProduct2", JSON.stringify(this.selectedProduct))
     } else {
-      this._toastr.warning("Stock máximo")
+      this._toastr.info("Stock máximo")
     }
   }
 
@@ -98,7 +96,6 @@ export class CarritoComponent {
     } else {
       this.selectedProduct[index].stock--;
       this.selectProduct2 = this.selectedProduct
-
       this.totales()
       console.log("TOTAL", this.val)
       const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
@@ -112,11 +109,14 @@ export class CarritoComponent {
     const inputElement = event.target as HTMLInputElement;
     const inputValue = parseInt(inputElement.value);
     if (this.selectedProduct[index].stock > this.stockMax) {
-      await this.getOneProduct(this.selectedProduct[index].idproduc);
       this.selectedProduct[index].stock = this.stockMax
-      this._toastr.warning("Stock máximo")
-    } else {
-      this.selectedProduct[index].stock = inputValue;
+      this._toastr.info("Stock máximo")
+    } else if(this.selectedProduct[index].stock <1){
+      this.selectedProduct[index].stock=1
+    }
+    else if(inputElement.value==""){
+      inputElement.value=""+1
+    }else{
       this.totales()
       console.log("TOTAL", this.val)
       const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock

@@ -64,7 +64,7 @@ export class OrderComponent implements OnInit {
   }
 
 
-  async FinalizarCompra(): Promise<Boolean> {
+  async FinalizarCompra(): Promise<void> {
     try {
       this.lastorden = await this._saleDetail.getLastOrder().toPromise();
 
@@ -78,15 +78,12 @@ export class OrderComponent implements OnInit {
           price_sale: detalle.price * detalle.stock,
           quantity: detalle.stock
         }
-        console.log("Nueva venta : " + JSON.stringify(newDetalle))
         await this._saleDetail.addDetailSale(newDetalle).toPromise();
       }
-      return true
+      this._toastr.success("Compra hecha exitosamete")
+      localStorage.removeItem("selectedProduct2")
     } catch (error) {
       console.log("Error en FinalizarCompra: ", error);
-      return false
     }
   }
-
-
 }

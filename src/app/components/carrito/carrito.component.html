@@ -25,7 +25,7 @@
                             <div class="input-group-append">
                               <button type="button" class="btn btn-outline-secondary"class="imagen" (click)="decrementValue(i)">-</button>
                             </div>
-                            <input (blur)="handleInputChange(i, $event)" type="number" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock" (change)="handleInputChange(i, $event)">
+                            <input (blur)="handleInputChange(i,$event)" type="number" class="form-control imagen" [(ngModel)] ="selectedProduct[i].stock" (change)="handleInputChange(i, $event)">
                             <div class="input-group-prepend">
                               <button type="button" class="btn btn-outline-secondary" class="imagen"  (click)="incrementValue(i)">+</button>
                             </div>
