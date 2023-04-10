@@ -4,9 +4,12 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IProductcar } from 'src/app/Interfaces/IProductsCar';
 import { SharedDataServiceService } from 'src/app/services/shared-data-service.service';
+import { ProductosService } from 'src/app/services/productos.service';
+import { IProducts } from 'src/app/Interfaces/IProducts';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
-interface Prueba{
+interface Prueba {
   image: String | any
   precio: number | any
   cantidad: number | any
@@ -23,37 +26,44 @@ export class CarritoComponent {
   searchText: any;
   aceptarterminos: boolean = false
   selectedProduct: IProductcar[] = []
-  data = []  = [];
-  total : Number | any
-  selectProduct2: IProductcar[] = [] 
+  data = [] = [];
+  total: Number | any
+  selectProduct2: IProductcar[] = []
   val: number = 0
   num: number = 0
   variable: string | any
-  variableMostrar: Boolean | any ;
-  Paginarefresco: boolean| any = true ;
+  variableMostrar: Boolean | any;
+  Paginarefresco: boolean | any = true;
+  stockMax: number | any
 
-  constructor(
+  constructor(private _productoService: ProductosService,
     private sharedDataService: SharedDataServiceService,
-     private _toastr: ToastrService,
-     private router: Router,){}
+    private _toastr: ToastrService,
+    private router: Router,) { }
 
 
-  ngOnInit(){
+  ngOnInit() {
 
     this.valores()
     this.selectedProduct = this.variable
-    console.log("VARIABLE LOCAl",this.variable)
-    console.log("Select Product de CARRTIO",this.variable)
-    console.log("TOTAL:",this.total)
+    console.log("VARIABLE LOCAl", this.variable)
+    console.log("Select Product de CARRTIO", this.variable)
+    console.log("TOTAL:", this.total)
     this.validaciones()
     this.totales()
   }
+  getOneProduct(id: number) {
+    this._productoService.getOneProduct(id).subscribe((data: IProducts) => {
+      this.stockMax = data.stock;
+      console.log(data);
+    });
+  }
 
   onDeleteSelectedProduct(i: number) {
-    console.log("Elemento Eliminado:",i)
+    console.log("Elemento Eliminado:", i)
     this.selectedProduct.splice(i, 1);
-    localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
-    if(i == 0){
+    localStorage.setItem("selectedProduct2", JSON.stringify(this.selectedProduct))
+    if (i == 0) {
       this.Paginarefresco = false;
       this.validaciones()
     }
@@ -61,95 +71,105 @@ export class CarritoComponent {
   }
 
 
-  incrementValue(index: number) {
+  async incrementValue(index: number) {
 
-    this.selectedProduct[index].stock++;
-    this.selectProduct2 = this.selectedProduct
-    this.totales()
-    console.log("TOTAL",this.val)
-    const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
-    this.selectedProduct[index].total = valor
-    console.log("TOTAL EN LISTA", valor)
-    localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
+    await this.getOneProduct(this.selectedProduct[index].idproduc);
+    if (this.selectedProduct[index].stock < this.stockMax) {
+      this.selectedProduct[index].stock++;
+      this.selectProduct2 = this.selectedProduct
+      this.totales()
+      console.log("TOTAL", this.val)
+      const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
+      this.selectedProduct[index].total = valor
+      console.log("TOTAL EN LISTA", valor)
+      localStorage.setItem("selectedProduct2", JSON.stringify(this.selectedProduct))
+    } else {
+      this._toastr.warning("Stock máximo")
+    }
   }
 
   decrementValue(index: number) {
     console.log(index)
     console.log(this.selectedProduct[index].stock)
-    if (this.selectedProduct[index].stock<= 1) {
+    if (this.selectedProduct[index].stock <= 1) {
       this.selectedProduct[index].stock = 1
       this.selectProduct2 = this.selectedProduct
-      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
+      localStorage.setItem("selectedProduct2", JSON.stringify(this.selectedProduct))
     } else {
       this.selectedProduct[index].stock--;
       this.selectProduct2 = this.selectedProduct
 
       this.totales()
-      console.log("TOTAL",this.val)
+      console.log("TOTAL", this.val)
       const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
       this.selectedProduct[index].total = valor
       console.log("TOTAL EN LISTA", valor)
-      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
+      localStorage.setItem("selectedProduct2", JSON.stringify(this.selectedProduct))
     }
   }
-  handleInputChange(index: number, event: Event) {
+  async handleInputChange(index: number, event: Event) {
+    await this.getOneProduct(this.selectedProduct[index].idproduc);
     const inputElement = event.target as HTMLInputElement;
-      const inputValue = parseInt(inputElement.value);
+    const inputValue = parseInt(inputElement.value);
+    if (this.selectedProduct[index].stock > this.stockMax) {
+      await this.getOneProduct(this.selectedProduct[index].idproduc);
+      this.selectedProduct[index].stock = this.stockMax
+      this._toastr.warning("Stock máximo")
+    } else {
       this.selectedProduct[index].stock = inputValue;
       this.totales()
-      console.log("TOTAL",this.val)
-
+      console.log("TOTAL", this.val)
       const valor = this.selectedProduct[index].price * this.selectedProduct[index].stock
       this.selectedProduct[index].total = valor
-      console.log("TOTAL EN LISTA",valor)
-      localStorage.setItem("selectedProduct2",JSON.stringify(this.selectedProduct))
-
+      console.log("TOTAL EN LISTA", valor)
+      localStorage.setItem("selectedProduct2", JSON.stringify(this.selectedProduct))
+    }
   }
 
-  totales(){
+  totales() {
     this.val = 0
-    for(const value of this.selectedProduct){
+    for (const value of this.selectedProduct) {
 
       this.num = value.price * value.stock
       this.val = this.val + this.num
       this.selectProduct2
-      console.log("VALUES",this.val)
-      }
+      console.log("VALUES", this.val)
+    }
     //this.total = this.selectedProduct.reduce((acc,obj,) => acc + (obj.price * obj.stock),0);
     //return this.total;
   }
 
-  valores(){
+  valores() {
     const selectedProductLocal = localStorage.getItem("selectedProduct2");
-      if ( selectedProductLocal != null) {
-        this.variable = JSON.parse(selectedProductLocal);
-      }else{
-        console.log("No hay datos")
-      }
+    if (selectedProductLocal != null) {
+      this.variable = JSON.parse(selectedProductLocal);
+    } else {
+      console.log("No hay datos")
+    }
   }
 
-  realizarcompra(){
-    if(this.aceptarterminos){
+  realizarcompra() {
+    if (this.aceptarterminos) {
       console.log(this.aceptarterminos)
-//      this.router.navigate(['/orden']);
+      //      this.router.navigate(['/orden']);
       window.location.href = "/metodopago"
-    }else{
+    } else {
       this._toastr.warning("Debe de Seleccionar los terminos y condiciones")
     }
   }
 
 
-  validaciones(){
-    if (this.selectedProduct.length  != 0 ) {
+  validaciones() {
+    if (this.selectedProduct.length != 0) {
       this.variableMostrar = true
       this.Paginarefresco = false
-      console.log("VALIDACION MOSTRAR",this.variableMostrar)
-      console.log("Recargar",this.Paginarefresco)
-    }else{
-      if(this.Paginarefresco == false){
+      console.log("VALIDACION MOSTRAR", this.variableMostrar)
+      console.log("Recargar", this.Paginarefresco)
+    } else {
+      if (this.Paginarefresco == false) {
         this.variableMostrar = false
         this.Paginarefresco = true;
-        console.log("Recargar",this.Paginarefresco)
+        console.log("Recargar", this.Paginarefresco)
         location.reload();
       }
     }

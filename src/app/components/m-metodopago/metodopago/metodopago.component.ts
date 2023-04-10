@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -28,6 +29,7 @@ export class MetodopagoComponent implements OnInit {
     private fb: FormBuilder,
     private _orderService: OrderService,
     private router: Router,
+    private datePipe:DatePipe
   ) { 
     this.formPay = this.fb.group({
       cuantaPaypal: ['',Validators.required],
@@ -46,7 +48,6 @@ export class MetodopagoComponent implements OnInit {
     
   ): void {
     this.GetPayMethod();
-
   }
   GetPayMethod(){
     this._paymethodService.getpayMethod().subscribe(
@@ -163,13 +164,11 @@ export class MetodopagoComponent implements OnInit {
 
 
   agregarOrder(){
-    const fecha = new Date().toLocaleDateString()
-    const fechaOrder = `${fecha.substring(4,10)}-${fecha.substring(2,3)}-${fecha.substring(0,1)}}`
-
+    
     const order: IOrder = {
       idperson: this.idperson,
       idpay : parseInt(this.idpay),
-      dateorder : fechaOrder,
+      dateorder : this.datePipe.transform(new Date, 'yyyy-MM-dd HH:mm:ss'),
       state : 1
     };
     this._orderService.addOrder(order).subscribe({next:() =>{

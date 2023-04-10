@@ -46,7 +46,7 @@ export class ProductosComponent implements OnInit {
 
   getProducts() {
     this._productService.getProducts().subscribe((data: IProducts[]) => {
-      this.listProducts = data;
+      this.listProducts = data.filter(op=>op.stock > 0);
     });
   }
 
