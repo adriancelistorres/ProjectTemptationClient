@@ -10,6 +10,7 @@ import {
   IPayPalConfig,
   ICreateOrderRequest
 } from 'ngx-paypal'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -37,6 +38,7 @@ export class OrderComponent implements OnInit {
   constructor(
     private _toastr: ToastrService,
     private _saleDetail: SaledetailService,
+    private router: Router
 
   ) {}
 
@@ -187,7 +189,7 @@ export class OrderComponent implements OnInit {
       }
       this._toastr.success('Compra hecha exitosamete');
       localStorage.removeItem('selectedProduct2');
-
+      this.router.navigate(['/finish-venta']);
 
 
     } catch (error) {
