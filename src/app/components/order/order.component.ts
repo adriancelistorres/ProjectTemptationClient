@@ -171,6 +171,8 @@ export class OrderComponent implements OnInit {
     this.totalGeneral = this.totalParcial + totalGeneral;
   }
 
+
+
   async FinalizarCompra(): Promise<void> {
     try {
       this.lastorden = await this._saleDetail.getLastOrder().toPromise();
