@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CollectionsComponent } from './components/collections/collections.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 import { MenuComponent } from './components/menu/menu.component';
 
@@ -81,12 +82,15 @@ import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodo
     ToastrModule.forRoot({timeOut: 4000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}),
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      NgxPayPalModule,
+
+
   ],
   providers: [
-    DatePipe 
+    DatePipe
   ],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
