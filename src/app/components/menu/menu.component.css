@@ -60,3 +60,19 @@
   -2px  2px 0 #868585,
    2px  2px 0 #ffffff;
 }
+
+.ulest{
+  line-height: 32px;
+  list-style-type: none;
+  margin: 0;
+  padding: 3;
+  list-style-image: url(../../../assets/img/inconfamarillo3.png);
+}
+
+.ulest2{
+  line-height: 32px;
+  list-style-type: none;
+  margin: 0;
+  padding: 3;
+  list-style-image: url(../../../assets/img/inconfazul3.png);
+}
