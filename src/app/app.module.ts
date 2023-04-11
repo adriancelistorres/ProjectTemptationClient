@@ -37,7 +37,8 @@ import { Pipev2Pipe } from './shared/pipev2.pipe';
 import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.component';
 import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
 import { DatePipe } from '@angular/common';
-import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component'
+import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component';
+import { FinishVentaComponent } from './components/finish-venta/finish-venta.component'
 
 
 
@@ -71,7 +72,8 @@ import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodo
     Pipev2Pipe,
     DetReclamosComponent,
     AddReclamosComponent,
-    MetodopagoComponent
+    MetodopagoComponent,
+    FinishVentaComponent
   ],
   imports: [
     BrowserModule,
