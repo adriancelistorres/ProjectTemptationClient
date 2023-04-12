@@ -190,7 +190,7 @@ export class OrderComponent implements OnInit {
         await this._saleDetail.addDetailSale(newDetalle).toPromise();
       }
       this._toastr.success('Compra hecha exitosamete');
-      localStorage.removeItem('selectedProduct2');
+      // localStorage.removeItem('selectedProduct2');
       this.router.navigate(['/finish-venta']);
 
 

@@ -38,7 +38,8 @@ import { DetReclamosComponent } from './components/det-reclamos/det-reclamos.com
 import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.component'
 import { DatePipe } from '@angular/common';
 import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component';
-import { FinishVentaComponent } from './components/finish-venta/finish-venta.component'
+import { FinishVentaComponent } from './components/finish-venta/finish-venta.component';
+import { PdfComponent } from './components/pdf/pdf.component'
 
 
 
@@ -73,7 +74,9 @@ import { FinishVentaComponent } from './components/finish-venta/finish-venta.com
     DetReclamosComponent,
     AddReclamosComponent,
     MetodopagoComponent,
-    FinishVentaComponent
+    FinishVentaComponent,
+    PdfComponent,
+
   ],
   imports: [
     BrowserModule,

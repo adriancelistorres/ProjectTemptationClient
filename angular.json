@@ -30,7 +30,11 @@
               "node_modules/ngx-toastr/toastr.css"            ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+              "node_modules/jspdf/dist/jspdf.min.js",
+              "node_modules/html2canvas/dist/html2canvas.min.js"
+
+
           ]
           },
           "configurations": {
