@@ -153,14 +153,19 @@ export class OrderComponent implements OnInit {
   IdentidifarMetodo() {
     if (this.idpay == 1) {
       this.metodopay = 'Paypal';
+      localStorage.setItem('metodopay', this.metodopay);
     } else if (this.idpay == 2) {
       this.metodopay = 'Tarjeta de Credito';
+      localStorage.setItem('metodopay', this.metodopay);
     } else if (this.idpay == 3) {
       this.metodopay = 'Yape';
+      localStorage.setItem('metodopay', this.metodopay);
     } else if (this.idpay == 4) {
       this.metodopay = 'Plin';
+      localStorage.setItem('metodopay', this.metodopay);
     } else if (this.idpay == 5) {
       this.metodopay = 'Tunki';
+      localStorage.setItem('metodopay', this.metodopay);
     }
   }
   totales() {

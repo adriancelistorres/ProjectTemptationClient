@@ -46,10 +46,13 @@
                       </div>
                 </div>
             </div>
-            <!-- <div class="finalizar">
+            <div class="finalizar" *ngIf="idpay !=1">
                 <a  (click)="FinalizarCompra()" class="btn btn-primary text-center w-100" >Finalizar Compra</a>
-            </div> -->
-            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            </div>
+            <div *ngIf="idpay ==1">
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            </div>
+            
 
         </div>
 

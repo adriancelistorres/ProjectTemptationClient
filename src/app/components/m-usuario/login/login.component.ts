@@ -72,6 +72,7 @@ export class LoginComponent {
           const dni = decodedToken.dni;
           const idperson = decodedToken.idperson;
 
+
           // console.log('rol:', role);
           this.rol = role;
           localStorage.setItem('rollogin', this.rol);

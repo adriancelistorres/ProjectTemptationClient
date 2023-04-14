@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+
+
+const imageUrl = '../../../assets/img/icont2.png'
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-finish-venta',
@@ -10,6 +14,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class FinishVentaComponent {
   productos: any[];
+  image: any;
 
   constructor(    private router: Router
     ) {
@@ -17,7 +22,20 @@ export class FinishVentaComponent {
     const datosLocalStorage = localStorage.getItem('selectedProduct2');
     this.productos = JSON.parse(datosLocalStorage);
   }
+  
   generarPDF() {
+    
+    fetch(imageUrl)
+    .then(res => res.blob())
+    .then(blob => {
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        console.log("Imagen",this.image)
+        this.image = base64data
+ 
+
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
     const productos = JSON.parse(localStorage.getItem('selectedProduct2'));
@@ -25,11 +43,53 @@ export class FinishVentaComponent {
     const docDefinition: any = {
       content: [
         {
+          image: this.image,
+          width: 75,
+          absolutePosition: { x: 25, y: 10 }
+        },
+        {
+          text: 'TIENDA TEMPTATION',
+          fontSize: 25,
+          bold: true,
+          alignment: "center",
+          absolutePosition: { x: 50, y: 20 },
+          margin: [5, 10, 0, 20]
+
+        },
+        {
+          stack: [
+            {
+              canvas: [
+                {
+                  type: 'rect',
+                  x: 400,
+                  y: -60,
+                  w: 120,
+                  h: 20,
+                  r: 0,
+                  lineColor: 'maroon',
+                  fillColor: 'white',
+                  
+                }
+              ],            
+            },
+            {
+              text: 'RUC: 17256235854',
+              absolutePosition: {x: 450, y: 15}
+            }
+          ]
+        },           
+        {
           text: 'Boleta de venta',
           style: 'header'
         },
         {
-          text: `Fecha: ${new Date().toLocaleDateString()}`,
+          stack:[
+            {text: `Nombre Completo: ${localStorage.getItem('name')} ${localStorage.getItem('lastname')} `, margin: [0, 2]},
+            {text: `DNI: ${localStorage.getItem('dni')}`, margin: [0, 2]},
+            {text: `Metodo de Pago: ${localStorage.getItem('metodopay')}`, margin: [0, 2]},
+            { text: `Fecha de Emision: ${new Date().toLocaleDateString()}`, margin: [0, 2]}
+          ],
           style: 'subheader'
         },
         {
@@ -62,10 +122,10 @@ export class FinishVentaComponent {
       ],
       styles: {
         header: {
-          fontSize: 22,
+          fontSize: 20,
           bold: true,
           alignment: 'center',
-          margin: [0, 0, 0, 20]
+          margin: [0, 5, 0, 20],
         },
         subheader: {
           fontSize: 14,
@@ -76,10 +136,13 @@ export class FinishVentaComponent {
           bold: true,
           margin: [0, 20, 0, 0]
         }
+
       }
     };
+    
 
     pdfMake.createPdf(docDefinition).open();
+   }}) 
   }
 
   calcularTotal(productos: any[]): number {
