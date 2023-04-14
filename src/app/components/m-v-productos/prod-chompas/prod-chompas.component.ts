@@ -39,6 +39,9 @@ export class ProdChompasComponent {
     this.miSize();
     this.micolor();
     this.SizeColorDetector();
+    const url = this.router.url;
+    localStorage.setItem('url',url);
+    console.log("URL",url);
   }
 
   getOnlyChompas() {

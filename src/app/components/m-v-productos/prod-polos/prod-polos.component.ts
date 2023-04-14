@@ -39,6 +39,9 @@ export class ProdPolosComponent {
     this.miSize();
     this.micolor();
     this.SizeColorDetector();
+    const url = this.router.url;
+    localStorage.setItem('url',url);
+    console.log("URL",url);
   }
 
   getOnlyPolos() {

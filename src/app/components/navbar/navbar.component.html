@@ -12,7 +12,7 @@
       <li>
         <a href="">INICIO</a>
       </li>
-      <li>
+      <li *ngIf="reclamovalidador">
         <a routerLink="/reclamos">Reclamos</a>
       </li>
       <li>
@@ -83,7 +83,7 @@
               <p>Productos</p>
               <ul class="mega-links">
                 <li>
-                  <a routerLink="productos/otoño" class="text-sub">Otoño</a>
+                  <a routerLink="productos/otono" class="text-sub">Otoño</a>
                 </li>
                 <li>
                   <a routerLink="productos/invierno" class="text-sub"

@@ -160,12 +160,14 @@ export class CarritoComponent {
 
 
   validaciones() {
+    console.log("Recargar", this.Paginarefresco)
     if (this.selectedProduct.length != 0) {
       this.variableMostrar = true
       this.Paginarefresco = false
       console.log("VALIDACION MOSTRAR", this.variableMostrar)
       console.log("Recargar", this.Paginarefresco)
     } else {
+      console.log("Recargar", this.Paginarefresco)
       if (this.Paginarefresco == false) {
         this.variableMostrar = false
         this.Paginarefresco = true;

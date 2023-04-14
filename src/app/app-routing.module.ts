@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'productos/primavera', component: CollecPrimaveraComponent},
   {path: 'productos/verano', component: CollecVeranoComponent},
   {path: 'productos/invierno', component: CollecInviernoComponent},
-  {path: 'productos/otoño', component: CollecFallComponent},
+  {path: 'productos/otono', component: CollecFallComponent},
   {path: "registro",component: UserRegistroComponent},
   {path: 'orden', component: OrderComponent },
   {path: 'reclamos',component: ReclamosComponent},
