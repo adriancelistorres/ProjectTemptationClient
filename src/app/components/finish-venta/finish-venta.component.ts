@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { ContentImage } from 'pdfmake/interfaces';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-finish-venta',
@@ -21,7 +22,12 @@ export class FinishVentaComponent {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
     const productos = JSON.parse(localStorage.getItem('selectedProduct2'));
-
+    const name = localStorage.getItem('name');
+    const lastname = localStorage.getItem('lastname');
+    // const imageDictionary ={
+    //   image1: '../../../assets/img/iconvest.jpg',
+    //   image2: '../../../assets/img/icontemp.png'
+    // } 
     const docDefinition: any = {
       content: [
         {
@@ -30,6 +36,10 @@ export class FinishVentaComponent {
         },
         {
           text: `Fecha: ${new Date().toLocaleDateString()}`,
+          style: 'subheader'
+        },
+        {
+          text: `Cliente: ${name} ${lastname}`,
           style: 'subheader'
         },
         {
@@ -80,6 +90,7 @@ export class FinishVentaComponent {
     };
 
     pdfMake.createPdf(docDefinition).open();
+    // pdfMake.createPdf(docDefinition).download('BoletaDeVenta.pdf');
   }
 
   calcularTotal(productos: any[]): number {
@@ -93,4 +104,14 @@ export class FinishVentaComponent {
     this.router.navigate(['/menu']);
 
   }
+
+  // getImageObject(imageUrl: string): ContentImage {
+  //   const image = {
+  //     width: 300,
+  //     height: 300,
+  //     image: imageUrl
+  //   };
+  //   console.log(image)
+  //   return image;
+  // }
 }
