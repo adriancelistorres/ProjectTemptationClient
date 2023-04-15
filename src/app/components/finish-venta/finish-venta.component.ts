@@ -39,7 +39,12 @@ export class FinishVentaComponent {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
     const productos = JSON.parse(localStorage.getItem('selectedProduct2'));
-
+    const name = localStorage.getItem('name');
+    const lastname = localStorage.getItem('lastname');
+    // const imageDictionary ={
+    //   image1: '../../../assets/img/iconvest.jpg',
+    //   image2: '../../../assets/img/icontemp.png'
+    // } 
     const docDefinition: any = {
       content: [
         {
@@ -93,6 +98,10 @@ export class FinishVentaComponent {
           style: 'subheader'
         },
         {
+          text: `Cliente: ${name} ${lastname}`,
+          style: 'subheader'
+        },
+        {
           table: {
             headerRows: 1,
             widths: ['auto', '*', 'auto', 'auto', 'auto'],
@@ -142,7 +151,9 @@ export class FinishVentaComponent {
     
 
     pdfMake.createPdf(docDefinition).open();
+
    }}) 
+
   }
 
   calcularTotal(productos: any[]): number {
@@ -156,4 +167,14 @@ export class FinishVentaComponent {
     this.router.navigate(['/menu']);
 
   }
+
+  // getImageObject(imageUrl: string): ContentImage {
+  //   const image = {
+  //     width: 300,
+  //     height: 300,
+  //     image: imageUrl
+  //   };
+  //   console.log(image)
+  //   return image;
+  // }
 }
