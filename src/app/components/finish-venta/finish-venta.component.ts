@@ -68,7 +68,7 @@ export class FinishVentaComponent {
                 {
                   type: 'rect',
                   x: 400,
-                  y: -60,
+                  y: -50,
                   w: 120,
                   h: 20,
                   r: 0,
@@ -80,7 +80,7 @@ export class FinishVentaComponent {
             },
             {
               text: 'RUC: 17256235854',
-              absolutePosition: {x: 450, y: 15}
+              absolutePosition: {x: 450, y: 25}
             }
           ]
         },           
