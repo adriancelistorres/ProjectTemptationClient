@@ -183,18 +183,24 @@ export class OrderComponent implements OnInit {
       this.lastorden = await this._saleDetail.getLastOrder().toPromise();
 
       console.log('Ultima orden obtenido : ' + this.lastorden.idorder);
-      for (const detalle of this.selectProduct) {
-        const newDetalle: ISaleDetail = {
-          idorder: this.lastorden?.idorder,
-          idproduc: detalle.idproduc,
-          discount: 0,
-          idsale: 0,
-          price_sale: detalle.price * detalle.stock,
-          quantity: detalle.stock,
-        };
-        await this._saleDetail.addDetailSale(newDetalle).toPromise();
+      try {
+        for (const detalle of this.selectProduct) {
+          const newDetalle: ISaleDetail = {
+            idorder: this.lastorden?.idorder,
+            idproduc: detalle.idproduc,
+            discount: 0,
+            idsale: 0,
+            price_sale: detalle.price * detalle.stock,
+            quantity: detalle.stock,
+          };
+          await this._saleDetail.addDetailSale(newDetalle).toPromise();
+        }
+        this._toastr.success('Compra hecha exitosamete');
+      } catch (error) {
+        this._toastr.success('No hay Stock Suficiente');
       }
-      this._toastr.success('Compra hecha exitosamete');
+
+
       // localStorage.removeItem('selectedProduct2');
       this.router.navigate(['/finish-venta']);
 
