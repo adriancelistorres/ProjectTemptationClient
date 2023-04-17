@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IPerson } from 'src/app/Interfaces/IPerson';
 import { PersonService } from 'src/app/services/person.service';
-import $ from 'jquery';
 import { IPersonUpdate } from 'src/app/Interfaces/IPersonUpdate';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from 'src/app/utils/error/error.service';
