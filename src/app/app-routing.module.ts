@@ -25,7 +25,8 @@ import { OrderComponent } from './components/order/order.component';
 import { ReclamosComponent } from './components/reclamos/reclamos.component';
 import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component';
 import { FinishVentaComponent } from './components/finish-venta/finish-venta.component';
-
+import { VerPerfilComponent } from './components/m-usuario/ver-perfil/ver-perfil.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -51,7 +52,8 @@ const routes: Routes = [
   {path: 'orden', component: OrderComponent },
   {path: 'reclamos',component: ReclamosComponent},
   {path: 'metodopago',component:MetodopagoComponent},
-  {path: 'finish-venta',component:FinishVentaComponent}
+  {path: 'finish-venta',component:FinishVentaComponent},
+  {path:'perfil',component:VerPerfilComponent,canActivate:[AuthGuard]}
 
 
 ];

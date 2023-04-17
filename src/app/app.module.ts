@@ -39,8 +39,9 @@ import { AddReclamosComponent } from './components/add-reclamos/add-reclamos.com
 import { DatePipe } from '@angular/common';
 import { MetodopagoComponent } from './components/m-metodopago/metodopago/metodopago.component';
 import { FinishVentaComponent } from './components/finish-venta/finish-venta.component';
-import { PdfComponent } from './components/pdf/pdf.component'
-
+import { PdfComponent } from './components/pdf/pdf.component';
+import { VerPerfilComponent } from './components/m-usuario/ver-perfil/ver-perfil.component'
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -76,6 +77,7 @@ import { PdfComponent } from './components/pdf/pdf.component'
     MetodopagoComponent,
     FinishVentaComponent,
     PdfComponent,
+    VerPerfilComponent,
 
   ],
   imports: [
