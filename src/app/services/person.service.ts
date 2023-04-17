@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { IPerson } from '../Interfaces/IPerson';
+import { IPersonUpdate } from '../Interfaces/IPersonUpdate';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class PersonService {
   public myAddApi: string;
   public myApi: string;
   public myApi2: string;
+  public myapiUpdateClient:string
 
   constructor(
       private http: HttpClient,
@@ -26,6 +28,7 @@ export class PersonService {
       this.myAddApi = 'addperson';
       this.myApi = 'persons';
       this.myApi2 = "person"
+      this.myapiUpdateClient="personclient"
   }
 
   getPerson(): Observable<IPerson[]>{
@@ -48,9 +51,9 @@ addPerson(person: IPerson): Observable<void>{
     }))
 }
 
-updatePerson(id: number, person: IPerson): Observable<void>{
+updatePerson(id: number, person: IPersonUpdate): Observable<void>{
     return this.http.put<void>(
-        `${this.myAppUrl}${this.myApi2}/${id}`,person
+        `${this.myAppUrl}${this.myapiUpdateClient}/${id}`,person
     ).pipe(tap(() =>{
         this._refershRequired.next();
     }))
