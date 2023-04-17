@@ -45,7 +45,7 @@ export class FinishVentaComponent {
 
 
   public downloadPDF(): void {
-    const imageUrl = '../../../assets/img/icont2.png';
+    const imageUrl = '../../../assets/img/icontemp.png';
 
     fetch(imageUrl)
     .then(res => res.blob())
@@ -88,7 +88,7 @@ export class FinishVentaComponent {
     doc.setTextColor(255, 0, 0);
     doc.text(`Datos de Usuario:`,50, doc.internal.pageSize.getHeight() - 730);
     doc.setTextColor(0, 0, 0);
-    doc.text(`Nombre: ${this.nombre}`,50, doc.internal.pageSize.getHeight() - 710);
+    doc.text(`Cliente: ${this.nombre}`,50, doc.internal.pageSize.getHeight() - 710);
     doc.text(`DNI: ${this.dni}`,50, doc.internal.pageSize.getHeight() - 690);
     doc.text(`Metodo de Pago: ${this.metodopay} `,50, doc.internal.pageSize.getHeight() - 670);
     doc.setTextColor(255, 0, 0);
@@ -97,7 +97,7 @@ export class FinishVentaComponent {
 
     doc.autoTable({
       head: [['ID', 'Nombre del producto', 'Cantidad', 'Precio unitario', 'SubTotal']],
-      body: this.productos.map(producto => [producto.idproduc, producto.name_p, producto.stock, `$${producto.price}`, `$${producto.total}`]),
+      body: this.productos.map(producto => [producto.idproduc, producto.name_p, producto.stock, `S/${producto.price}`, `S/${producto.total}`]),
       startY: 200,
       headStyles: {
         fillColor: '#8B4513', 
@@ -113,9 +113,9 @@ export class FinishVentaComponent {
         const dato2 = ""+Total
         console.log("DATA",dato)
         console.log("DATA",dato2)
-        const subTotal = 'SubTotal:'+dato;
+        const subTotal = 'SubTotal: S/'+dato;
         const igv = `IGV: 0.18`;
-        const total = 'Total: '+dato2;
+        const total = 'Total: S/'+dato2;
         const { startX, startY, table } = data;
         const lineHeight = table && table.body && table.body.length > 0 ? table.body[0].height : 0;
         const totalTableHeight = table.body.reduce((acc, curr) => acc + curr.height, 0);

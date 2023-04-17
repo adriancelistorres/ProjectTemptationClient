@@ -64,7 +64,7 @@
               <input
                 formControlName="descripcion"
                 class="form-control"
-                pattern="[A-Za-z ]{1,50}"
+                pattern="[A-Za-z .]{1,500}"
                 id="exampleInputPassword1"
               />
               <span *ngIf="formClaim.get('descripcion')?.hasError('required') && formClaim.get('descripcion')?.touched">
