@@ -190,7 +190,7 @@ export class OrderComponent implements OnInit {
             idproduc: detalle.idproduc,
             discount: 0,
             idsale: 0,
-            price_sale: detalle.price * detalle.stock,
+            price_sale: detalle.price,
             quantity: detalle.stock,
           };
           await this._saleDetail.addDetailSale(newDetalle).toPromise();
