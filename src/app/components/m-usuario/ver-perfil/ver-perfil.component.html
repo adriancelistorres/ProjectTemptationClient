@@ -82,7 +82,7 @@
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label">Fecha de Nacimiento</label>
-                                <input class="form-select " formControlName="date_b" id="inputState" type="date"
+                                <input class="form-select " readonly formControlName="date_b" id="inputState" type="date"
                                     name="date" min="1940-01-01" max="2002-12-31">
                                 <span *ngIf="
                                 formPerson.get('date_b')?.hasError('required') &&
